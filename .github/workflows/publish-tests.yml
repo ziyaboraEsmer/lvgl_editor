@@ -22,7 +22,7 @@ jobs:
 
       - name: Clone editor-online-preview repository
         run: |
-          git clone https://github.com/lvgl-private/editor-online-preview.git /tmp/editor-preview
+          git clone https://github.com/lvgl-private/editor-test-preview.git /tmp/editor-preview
 
       - name: Prepare preview files
         run: |
