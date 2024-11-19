@@ -1,0 +1,44 @@
+name: Publish Tests
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v4
+        with:
+          path: "current-repo"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Clone editor-online-preview repository
+        run: |
+          git clone https://github.com/lvgl-private/editor-online-preview.git /tmp/editor-preview
+
+      - name: Prepare preview files
+        run: |
+          # Create project directory in the preview
+          mkdir -p /tmp/editor-preview/project
+          # Copy current repo contents to project directory
+          cp -r current-repo/* /tmp/editor-preview/project/
+
+      - name: Generate manifest file
+        run: |
+          cd /tmp/editor-preview
+          node generateProjectManifest.js ./project/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: /tmp/editor-preview
+          force_orphan: true
