@@ -36,9 +36,10 @@ jobs:
           cd /tmp/editor-preview
           node generateProjectManifest.js ./project/
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: actions/deploy-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /tmp/editor-preview
-          force_orphan: true
+          path: /tmp/editor-preview
