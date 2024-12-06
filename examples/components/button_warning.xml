@@ -1,0 +1,10 @@
+<component>
+    <params>
+		<string name="text"/>
+	</params>
+    <styles>
+        <style name="main" bg_color="0xffbb44" text_color="0x000000" border_color="0x333333" radius="100"/>
+    </styles>
+    <view extends="button_default" styles="main" text="$text">
+    </view>
+</component>

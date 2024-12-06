@@ -1,0 +1,11 @@
+<globals>
+    <images>
+        <data name="screenshot" src_path="A:/images/lvgl.png" file_format="png"/>
+        <data name="wink" src_path="A:/images/wink.png" file_format="png"/>
+    </images>
+     <fonts>
+        <tinyttf name="arial_14" src_path="A:/fonts/arial.ttf" size="14"/>
+        <tinyttf name="arial_18" src_path="A:/fonts/arial.ttf" size="18"/>
+        <tinyttf name="arial_22" src_path="A:/fonts/arial.ttf" size="22"/>
+    </fonts>   
+</globals>

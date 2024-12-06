@@ -1,0 +1,7 @@
+<component>
+    <styles>
+        <style name="main" text_font="lv_montserrat_18" />
+    </styles>
+    <view extends="lv_label" styles="main">
+    </view>
+</component>

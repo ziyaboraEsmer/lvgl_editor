@@ -1,0 +1,12 @@
+<component>
+    <api>
+		<prop name="text" type="string" default="Muhaha"/>
+		<prop name="my_width" type="int" default="100"/>
+	</api>
+    <styles>
+        <style name="main" bg_color="0x22222" border_width="2" border_color="0x333333" radius="100"/>
+    </styles>
+    <view extends="lv_button" styles="main" width="$my_width">
+        <h2 text="$text" align="center"/>
+    </view>
+</component>
