@@ -1,6 +1,6 @@
 <component>
     <api>
-		<prop name="text" type="string" default="Muhaha"/>
+		<prop name="text" type="string" default="Button"/>
 		<prop name="my_width" type="int" default="100"/>
 	</api>
     <styles>

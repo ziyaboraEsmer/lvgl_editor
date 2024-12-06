@@ -8,7 +8,7 @@
                border_width="2" border_color="0xaaaaaa" 
                radius="100"
                width="100"
-                pad_all="3"/>
+               pad_all="3"/>
         <style name="light_knob" 
                bg_color="0xeeeeee" bg_opa="255" 
                border_width="2" border_color="0xaaaaaa" pad_all="10"/>

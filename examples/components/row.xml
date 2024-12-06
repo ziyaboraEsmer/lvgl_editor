@@ -1,7 +1,0 @@
-<component>
-    <styles>
-        <style name="main" border_width="2" bg_opa="0" layout="flex" flex_flow="row"/>
-    </styles>
-    <view extends="lv_obj" styles="main" flex_flow="row">
-    </view>
-</component>

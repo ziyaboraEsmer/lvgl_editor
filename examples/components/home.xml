@@ -1,0 +1,11 @@
+<component>
+    <view extends="lv_obj" width="100%" height="100%" style_radius="0" style_border_width="0">
+        <lv_obj flex_flow="column" width="50%" height="100%">
+            <slider_box title="First"/>
+            <slider_box title="Temperature of the Living room"/>
+            <slider_box title="The last one"/>
+        </lv_obj>
+
+        <button_error text="Default" align="center"/>
+    </view>        
+</component>
