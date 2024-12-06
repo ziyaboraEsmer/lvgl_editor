@@ -1,7 +1,4 @@
 <widget>
-    <api>
-		<prop type="string" name="text"/>
-	</api>
     <styles>
         <style name="main" 
                bg_color="0x333333" bg_opa="255" 
