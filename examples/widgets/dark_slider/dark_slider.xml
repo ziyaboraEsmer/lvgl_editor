@@ -1,14 +1,14 @@
 <widget>
-    <params>
-		<string name="text"/>
-	</params>
+    <api>
+		<prop type="string" name="text"/>
+	</api>
     <styles>
         <style name="main" 
                bg_color="0x333333" bg_opa="255" 
                border_width="2" border_color="0xaaaaaa" 
                radius="100"
-               width="100"
-               pad_all="3"/>
+               width="120"
+               pad_all="3"/> 
         <style name="light_knob" 
                bg_color="0xeeeeee" bg_opa="255" 
                border_width="2" border_color="0xaaaaaa" pad_all="10"/>

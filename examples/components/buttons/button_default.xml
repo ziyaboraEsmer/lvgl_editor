@@ -1,7 +1,6 @@
 <component>
     <api>
 		<prop name="text" type="string" default="Button"/>
-		<prop name="my_width" type="int" default="100"/>
 	</api>
     <styles>
         <style name="main" bg_color="0x22222" border_width="2" border_color="0x333333" radius="100"/>
