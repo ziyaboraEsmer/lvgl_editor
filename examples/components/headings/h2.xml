@@ -1,7 +1,12 @@
 <component>
+    <api>
+		<prop name="text" type="string" default="Label"/>
+	</api>
+
     <styles>
-        <style name="main" text_font="lv_montserrat_16"/>
+        <style name="main" text_font="arial_18"/>
     </styles>
+    
     <view extends="lv_label" styles="main" text="$text">
     </view>
 </component>

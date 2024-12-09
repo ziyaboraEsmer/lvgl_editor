@@ -1,5 +1,5 @@
 /**
- * @file dark_slider_xml_parser.c
+ * @file slider_box_xml_parser.c
  *
  */
 
@@ -7,7 +7,7 @@
  *      INCLUDES
  *********************/
 #include "lvgl/lvgl.h"
-#include "dark_slider_gen.h"
+#include "slider_box_gen.h"
 #include "lvgl/src/others/xml/parsers/lv_xml_obj_parser.h"
 #include "lvgl/src/others/xml/lv_xml_widget.h"
 #include "lvgl/src/others/xml/lv_xml_parser.h"
@@ -36,34 +36,43 @@
  *   GLOBAL FUNCTIONS
  **********************/
 
-void * dark_slider_xml_create(lv_xml_parser_state_t * state, const char ** attrs)
+void * slider_box_xml_create(lv_xml_parser_state_t * state, const char ** attrs)
 {
     LV_UNUSED(attrs);
-    void * item =  dark_slider_create(lv_xml_state_get_parent(state));
+    void * item = state->item;
+
     if(item == NULL) {
-        LV_LOG_ERROR("Failed to create dark_slider");
+        LV_LOG_ERROR("Failed to create slider_box");
         return NULL;
     }
 
     return item;
 }
 
-void dark_slider_xml_apply(lv_xml_parser_state_t * state, const char ** attrs)
+void slider_box_xml_apply(lv_xml_parser_state_t * state, const char ** attrs)
 {
+    void * item = slider_box_create(lv_xml_state_get_parent(state));
 
     lv_xml_obj_apply(state, attrs);
 
-    lv_obj_t * obj = lv_xml_state_get_item(state);
+    const char * title;
+
     for(int i = 0; attrs[i]; i += 2) {
         const char * name = attrs[i];
-        const char * value = attrs[i + 1];    
-        if(lv_streq(name, "color")) dark_slider_set_color(obj, lv_xml_to_color(value));    
+        const char * value = attrs[i + 1];
+
+        if(lv_streq("title", name)) title = value;
     }
+
+    if (title) {
+        slider_box_set_title(item, title);
+    }
+    
 }
 
-void dark_slider_register(void)
+void slider_box_register(void)
 {
-    lv_xml_widget_register("dark_slider", dark_slider_xml_create, dark_slider_xml_apply);
+    lv_xml_widget_register("slider_box", slider_box_xml_create, slider_box_xml_apply);
 }
 
 /**********************

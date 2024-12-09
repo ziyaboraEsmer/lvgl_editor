@@ -1,7 +1,14 @@
 <component>
+    
+    <api>
+		<prop name="text" type="string" default="Button"/>
+	</api>
+
     <styles>
-        <style name="main" bg_color="0xff3322" text_color="0xffffff" border_color="0x333333" radius="100"/>
+        <style name="main" bg_color="0xff3322" border_width="2" border_color="0x555555" radius="100"/>
     </styles>
-    <view extends="button_default" styles="main" text="$text">
-    </view> 
+
+    <view extends="lv_button" styles="main">
+        <h2 text="$text" align="center"/>
+    </view>
 </component>

@@ -78,8 +78,9 @@ static void dark_slider_constructor(const lv_obj_class_t * class_p, lv_obj_t * o
 
     if(!style_main_inited) {
         lv_style_init(&style_main);
-                lv_style_set_bg_color(&style_main, lv_color_hex(0x333333));
+        lv_style_set_bg_color(&style_main, lv_color_hex(0x333333));
         lv_style_set_border_width(&style_main, 2);
+        lv_style_set_bg_opa(&style_main, 255);
         lv_style_set_radius(&style_main, 100);
         style_main_inited = true;
     }
@@ -91,26 +92,29 @@ static void dark_slider_constructor(const lv_obj_class_t * class_p, lv_obj_t * o
 
     if(!style_light_knob_inited) {
         lv_style_init(&style_light_knob);
-                lv_style_set_bg_color(&style_light_knob, lv_color_hex(0xeeeeee));
+        lv_style_set_bg_color(&style_light_knob, lv_color_hex(0xeeeeee));
+        lv_style_set_bg_opa(&style_light_knob, 255);
         lv_style_set_border_width(&style_light_knob, 2);
+        lv_style_set_radius(&style_light_knob, 10);
         style_light_knob_inited = true;
     }
 
-    lv_obj_add_style(obj, &style_light_knob, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_add_style(obj, &style_light_knob, LV_PART_KNOB | LV_STATE_DEFAULT);
 
     static lv_style_t style_blue_indicator;
     static bool style_blue_indicator_inited = false;
 
     if(!style_blue_indicator_inited) {
         lv_style_init(&style_blue_indicator);
-                lv_style_set_bg_color(&style_blue_indicator, lv_color_hex(0x0000ff));
+        lv_style_set_bg_color(&style_blue_indicator, lv_color_hex(0x0000ff));
+        lv_style_set_bg_opa(&style_blue_indicator, 255);
         style_blue_indicator_inited = true;
     }
 
-    lv_obj_add_style(obj, &style_blue_indicator, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_add_style(obj, &style_blue_indicator, LV_PART_INDICATOR | LV_STATE_DEFAULT);
 
+    lv_obj_add_flag(obj, LV_OBJ_FLAG_SEND_DRAW_TASK_EVENTS);
     dark_slider_t * dark_slider = (dark_slider_t *)obj;
-    
 
     dark_slider_constructor_hook(obj);
 

@@ -1,10 +1,10 @@
 /**
- * @file dark_slider_gen.h
+ * @file slider_box_gen.h
  *
  */
 
-#ifndef DARK_SLIDER_GEN_H
-#define DARK_SLIDER_GEN_H
+#ifndef SLIDER_BOX_GEN_H
+#define SLIDER_BOX_GEN_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,14 +29,19 @@ extern "C" {
  **********************/
 
 /**
- * Create a dark_slider object
- * @param parent pointer to an object, it will be the parent of the new dark_slider
- * @return pointer to the created dark_slider
+ * Create a slider_box object
+ * @param parent pointer to an object, it will be the parent of the new slider_box
+ * @return pointer to the created slider_box
  */
-lv_obj_t * dark_slider_create(lv_obj_t * parent);
+lv_obj_t * slider_box_create(lv_obj_t * parent);
 
-void dark_slider_set_color(lv_obj_t * obj, lv_color_t c);
 
+/**
+ * Set the undefined
+ * @param obj   pointer to a slider_box
+ * @param title  undefined
+ */
+void slider_box_set_title(lv_obj_t * obj, const char * title);
 
 /**********************
  *      MACROS
@@ -46,4 +51,4 @@ void dark_slider_set_color(lv_obj_t * obj, lv_color_t c);
 } /*extern "C"*/
 #endif
 
-#endif /*DARK_SLIDER_GEN_H*/
+#endif /*SLIDER_BOX_GEN_H*/

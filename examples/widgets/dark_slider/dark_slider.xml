@@ -1,19 +1,25 @@
 <widget>
+    <api>
+        <prop name="color" type="color"/>
+    </api>
+    
     <styles>
         <style name="main" 
                bg_color="0x333333" bg_opa="255" 
                border_width="2" border_color="0xaaaaaa" 
                radius="100"
                width="120"
-               pad_all="3"/> 
+               height="16"
+               pad_all="4"/> 
         <style name="light_knob" 
                bg_color="0xeeeeee" bg_opa="255" 
-               border_width="2" border_color="0xaaaaaa" pad_all="10"/>
+               border_width="2" radius="100" border_color="0xaaaaaa" pad_all="5"/>
         <style name="blue_indicator" 
-               bg_color="0x0000ff" bg_opa="255"/>
+               bg_color="0x0000ff" bg_opa="255" 
+               radius="100"/>
     </styles>
     <view extends="lv_slider" 
           styles="main light_knob:knob blue_indicator:indicator" 
-          align="center">
+          align="center" value="30" range="20 40">
     </view>
 </widget>

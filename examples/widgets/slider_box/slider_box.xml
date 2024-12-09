@@ -8,22 +8,33 @@
         <style name="main" 
                bg_color="0x666666" bg_opa="255" 
                border_width="2" border_color="0xaaaaaa" 
-               radius="3"
+               radius="20"
                width="250" height="100"
                layout="flex"
-               flex_flow="column"/> 
-    </styles>
-    <view extends="lv_obj" 
-          styles="main"
-          align="center"> 
+               flex_flow="column" flex_cross_place="center" flex_track_place="center" 
+               pad_row="10"
+               pad_all="10"/> 
 
-        <lv_label align="top_mid" text="$title" width="80%" long_mode="scroll"/>
-        <lv_obj width="50%" height="content" flex_flow="row" style_bg_opa="200">
-            <lv_button width="30"  height="30">
+        <style name="transp_cont"
+               bg_opa="0"
+               border_width="2" 
+               layout="flex"
+               flex_flow="row" flex_cross_place="center"
+               pad_column="20"/> 
+
+        <style name="button"
+               radius="100" /> 
+    </styles>
+    <view extends="lv_obj" styles="main" align="center"> 
+
+        <lv_label align="top_mid" text="$title" style_text_color="0x000000" width="content" long_mode="scroll"/>
+
+        <lv_obj width="100%" height="content" styles="transp_cont">
+            <lv_button width="30"  height="30" styles="button">
                 <lv_label text="-"/>
             </lv_button>
-            <dark_slider align="top_mid" y="30"/>
-            <lv_button width="30"  height="30" text="+">
+            <dark_slider width="100" height="15" flex_grow="1" />
+            <lv_button styles="button">
                 <lv_label text="+"/>
             </lv_button>
         </lv_obj>
