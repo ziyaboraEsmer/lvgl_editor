@@ -36,9 +36,7 @@
 
     <view extends="lv_obj" styles="main"> 
         <lv_obj styles="cont left_cont">
-            <slider_box/>
-            <slider_box/>
-            <slider_box/>
+            <slider_box width="150" send_draw_task_events="true"/>
         </lv_obj>  
 
         <lv_obj styles="cont right_cont" flex_grow="1">

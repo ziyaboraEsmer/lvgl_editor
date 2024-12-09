@@ -13,8 +13,7 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
-#include "lvgl/lvgl.h"
-#include "lvgl/src/widgets/slider/lv_slider_private.h" /*The ancestor of dark_slider*/
+#include "lvgl/src/widgets/slider/lv_slider_private.h"
 #include "dark_slider.h"
 
 /*********************
@@ -27,6 +26,7 @@ extern "C" {
 
 typedef struct {
     lv_slider_t obj;  /* Base widget to extend */
+    void * color;
 } dark_slider_t;
 
 /**********************

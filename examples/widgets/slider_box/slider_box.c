@@ -7,6 +7,7 @@
  *      INCLUDES
  *********************/
 #include "slider_box_private_gen.h"
+#include "ui.h"
 
 /*********************
  *      DEFINES
@@ -51,7 +52,7 @@ void slider_box_event_hook(lv_event_t * e)
 void slider_box_set_title(lv_obj_t * obj, const char * title)
 {
     slider_box_t * item = (slider_box_t *)obj;
-    //item->title = title;
+    item->title = title;
     lv_label_set_text(item->lv_label, title);
 }
 

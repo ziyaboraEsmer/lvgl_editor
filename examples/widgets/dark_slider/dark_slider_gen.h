@@ -14,7 +14,6 @@ extern "C" {
  *      INCLUDES
  *********************/
 #include "lvgl/lvgl.h"
-#include "lvgl/src/others/xml/lv_xml_parser.h"
 
 /*********************
  *      DEFINES
@@ -35,8 +34,13 @@ extern "C" {
  */
 lv_obj_t * dark_slider_create(lv_obj_t * parent);
 
-void dark_slider_set_color(lv_obj_t * obj, lv_color_t c);
 
+/**
+ * Set the undefined
+ * @param obj   pointer to a dark_slider
+ * @param color  undefined
+ */
+void dark_slider_set_color(lv_obj_t * obj, lv_color_t color);
 
 /**********************
  *      MACROS

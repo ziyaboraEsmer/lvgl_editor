@@ -8,7 +8,7 @@
  *********************/
 #include "slider_box_private_gen.h"
 #include "lvgl/src/core/lv_obj_class_private.h"
-#include "lvgl/src/others/xml/lv_xml_parser.h"
+#include "ui.h"
 
 /*********************
  *      DEFINES
@@ -43,8 +43,6 @@ const lv_obj_class_t slider_box_class = {
     .constructor_cb = slider_box_constructor,
     .destructor_cb = slider_box_destructor,
     .event_cb = slider_box_event,
-    .width_def = LV_SIZE_CONTENT,
-    .height_def = LV_SIZE_CONTENT,
     .instance_size = sizeof(slider_box_t),
     .editable = 1,
 };
@@ -78,19 +76,62 @@ static void slider_box_constructor(const lv_obj_class_t * class_p, lv_obj_t * ob
 
     if(!style_main_inited) {
         lv_style_init(&style_main);
-		lv_style_set_bg_color(&style_main, lv_color_hex(0x666666));
-		lv_style_set_bg_opa(&style_main, LV_OPA_COVER);
+                lv_style_set_bg_color(&style_main, lv_color_hex(0x666666));
+        lv_style_set_bg_opa(&style_main, 255);
         lv_style_set_border_width(&style_main, 2);
-        lv_style_set_radius(&style_main, 3);
+        lv_style_set_border_color(&style_main, lv_color_hex(0xaaaaaa));
+        lv_style_set_radius(&style_main, 20);
+        lv_style_set_width(&style_main, 250);
+        lv_style_set_height(&style_main, 100);
+        lv_style_set_pad_all(&style_main, 10);
         style_main_inited = true;
     }
 
     lv_obj_add_style(obj, &style_main, LV_PART_MAIN | LV_STATE_DEFAULT);
 
+    static lv_style_t style_transp_cont;
+    static bool style_transp_cont_inited = false;
+
+    if(!style_transp_cont_inited) {
+        lv_style_init(&style_transp_cont);
+                lv_style_set_bg_opa(&style_transp_cont, 0);
+        lv_style_set_border_width(&style_transp_cont, 2);
+        style_transp_cont_inited = true;
+    }
+
+    lv_obj_add_style(obj, &style_transp_cont, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    static lv_style_t style_button;
+    static bool style_button_inited = false;
+
+    if(!style_button_inited) {
+        lv_style_init(&style_button);
+                lv_style_set_radius(&style_button, 100);
+        style_button_inited = true;
+    }
+
+    lv_obj_add_style(obj, &style_button, LV_PART_MAIN | LV_STATE_DEFAULT);
+
     slider_box_t * slider_box = (slider_box_t *)obj;
+    
     slider_box->lv_label = lv_label_create(obj);
+    lv_label_set_text(slider_box->lv_label, "$title");
+    lv_label_set_long_mode(slider_box->lv_label, LV_LABEL_LONG_MODE_SCROLL);
 
     slider_box->lv_obj = lv_obj_create(obj);
+
+    slider_box->lv_button = lv_button_create(slider_box->lv_obj);
+
+    slider_box->lv_label2 = lv_label_create(slider_box->lv_button);
+    lv_label_set_text(slider_box->lv_label2, "-");
+
+    slider_box->lv_button2 = lv_button_create(slider_box->lv_obj);
+
+    slider_box->lv_label3 = lv_label_create(slider_box->lv_button2);
+    lv_label_set_text(slider_box->lv_label3, "+");
+
+    slider_box->dark_slider = dark_slider_create(slider_box->lv_obj);
+
 
     slider_box_constructor_hook(obj);
 

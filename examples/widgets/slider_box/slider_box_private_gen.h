@@ -13,7 +13,6 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
-#include "lvgl/lvgl.h"
 #include "lvgl/src/core/lv_obj_private.h"
 #include "slider_box.h"
 
@@ -27,7 +26,7 @@ extern "C" {
 
 typedef struct {
     lv_obj_t obj;  /* Base widget to extend */
-    void * title;
+    const char * title;
     lv_obj_t * lv_label;
     lv_obj_t * lv_obj;
     lv_obj_t * lv_button;

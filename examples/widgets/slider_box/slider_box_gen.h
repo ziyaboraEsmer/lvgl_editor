@@ -14,7 +14,6 @@ extern "C" {
  *      INCLUDES
  *********************/
 #include "lvgl/lvgl.h"
-#include "lvgl/src/others/xml/lv_xml_parser.h"
 
 /*********************
  *      DEFINES
