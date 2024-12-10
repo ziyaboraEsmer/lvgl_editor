@@ -20,6 +20,6 @@
     </styles>
     <view extends="lv_slider" 
           styles="main light_knob:knob blue_indicator:indicator" 
-          align="center" value="30" range="20 40">
+          align="center" value="30" range="20 40" send_draw_task_events="true">
     </view>
 </widget>

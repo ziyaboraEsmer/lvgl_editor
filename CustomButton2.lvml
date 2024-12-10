@@ -1,8 +1,0 @@
-<component>
-    <styles>
-        <style name="blue" bg_color="0x2196F3" />
-    </styles>
-    <view extends="button" styles="blue">
-        <label text="Button"/>
-    </view>
-</component>
