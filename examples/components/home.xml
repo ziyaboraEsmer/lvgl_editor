@@ -37,16 +37,26 @@
     <view extends="lv_obj" styles="main"> 
         <lv_obj styles="cont left_cont">
             <slider_box width="150"/>
+            <slider_box width="150"/>
+            <slider_box width="150"/>
+            <slider_box width="150"/>
+            <slider_box width="150"/>
+            <slider_box width="150"/>
+            <slider_box width="150"/>
+            <slider_box width="150"/>
+            <slider_box width="150"/>
+            <slider_box width="150"/>
+            <slider_box width="150"/>
         </lv_obj>  
 
         <lv_obj styles="cont right_cont" flex_grow="1">
             <button_default text="First button"/>
             <button_default text="Second button"/>
-            <dark_slider width="100" height="15" color="0xff0000"/>
-            <button_warning text="Third button"/>
-            <button_warning text="Forth button"/>
-            <button_error text="Fifth button"/>
-            <button_error text="Sixth button"/>
+            <dark_slider width="100" height="15" color="0xff0000" send_draw_task_events="true"/>
+            <button_warning text="First button"/>
+            <button_warning text="Second button"/>
+            <button_error text="First button"/>
+            <button_error text="Second button"/>
         </lv_obj>
     </view>        
 </component>

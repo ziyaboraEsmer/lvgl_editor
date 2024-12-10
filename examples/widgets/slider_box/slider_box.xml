@@ -9,7 +9,8 @@
                radius="20"
                width="180" height="content"
                layout="flex"
-               flex_flow="column" flex_cross_place="center" flex_track_place="center" 
+               flex_flow="column" 
+               flex_cross_place="center" flex_track_place="center" 
                pad_row="10"
                pad_all="10"/> 
 
@@ -32,7 +33,7 @@
             <lv_button width="30"  height="30" styles="button">
                 <lv_label text="-"/>
             </lv_button>
-            <dark_slider  flex_grow="1"/>
+            <dark_slider  flex_grow="1" color="0xff00ff"/>
             <lv_button styles="button">
                 <lv_label text="+"/>
             </lv_button>

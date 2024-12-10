@@ -13,7 +13,7 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
-#include "lvgl/src/widgets/slider/lv_slider_private.h"
+#include "lvgl/src/widgets/slider/lv_slider_private.h" /*The ancestor of dark_slider*/
 #include "dark_slider.h"
 
 /*********************
