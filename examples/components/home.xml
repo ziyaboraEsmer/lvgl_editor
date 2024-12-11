@@ -36,17 +36,12 @@
 
     <view extends="lv_obj" styles="main"> 
         <lv_obj styles="cont left_cont">
-            <slider_box width="150"/>
-            <slider_box width="150"/>
-            <slider_box width="150"/>
-            <slider_box width="150"/>
-            <slider_box width="150"/>
-            <slider_box width="150"/>
-            <slider_box width="150"/>
-            <slider_box width="150"/>
-            <slider_box width="150"/>
-            <slider_box width="150"/>
-            <slider_box width="150"/>
+            <slider_box width="190"/>
+            <slider_box width="190"/>
+            <slider_box width="190"/>
+            <slider_box width="190"/>
+            <slider_box width="190"/>
+            <slider_box width="190"/>
         </lv_obj>  
 
         <lv_obj styles="cont right_cont" flex_grow="1">

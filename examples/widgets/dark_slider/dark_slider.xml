@@ -7,7 +7,7 @@
         <style name="main" 
                bg_color="0x333333" bg_opa="255" 
                border_width="2" border_color="0xaaaaaa" 
-               radius="100"
+               radius="10"
                width="120"
                height="16"
                pad_all="4"/> 
