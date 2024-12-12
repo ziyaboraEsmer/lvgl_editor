@@ -107,6 +107,27 @@ jobs:
           fi
           echo "widget_functions=$WIDGET_LIST" >> $GITHUB_OUTPUT
 
+      # Cache LVGL library
+      - name: Cache LVGL library
+        id: cache-lvgl-lib
+        uses: actions/cache@v3
+        with:
+          path: /tmp/runtime/lib/liblvgl.a
+          key: lvgl-lib-${{ steps.lvgl-commit.outputs.commit_hash }}
+
+      - name: Build LVGL library
+        if: steps.cache-lvgl-lib.outputs.cache-hit != 'true'
+        run: |
+          docker run --rm \
+            -v /tmp/runtime:/work \
+            -w /work/lib \
+            coevin/emscripten-sdl2:main \
+            sh -c 'mkdir -p /tmp/build && \
+                  cd /tmp/build && \
+                  emcmake cmake /work/lib && \
+                  emmake make -j8 && \
+                  cp liblvgl.a /work/lib/'
+
       - name: Build runtime
         run: |
           # Create build directory
