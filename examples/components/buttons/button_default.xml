@@ -1,7 +1,7 @@
 <component>
     
     <api>
-		<prop name="button_text" type="string" default="Button"/>
+		<prop name="button_label" type="string" default="Button"/>
 	</api>
 
     <styles>
@@ -21,6 +21,6 @@
     </styles>
 
     <view extends="lv_button" styles="main pr:pressed">
-        <h3 text="$button_text" align="center"/>
+        <h3 text="$button_label" align="center"/>
     </view>
 </component>
