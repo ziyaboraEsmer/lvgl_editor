@@ -1,5 +1,7 @@
 # LVGL's UI Editor
 
+This repository is the place for public LVGL Editor related content.
+
 ## Introduction
 
 LVGL's UI editor is an under-development tool designed to help UI developers create embedded UIs faster and in a more maintainable way. The main characteristics of this tool are:
@@ -20,6 +22,8 @@ We believe designers should work freely in tools like Figma, focusing on creativ
 ![image](https://github.com/user-attachments/assets/bcc1b7f7-6e54-4c6c-ac69-f2b1a82068ab)
 
 ## Get Started
+
+**⚠️ These will apply when the v0.1 is relased in January**
 
 1. **Fork this repository** to experiment with its CI actions and online preview features.
 2. **Clone your fork** to your local machine.
@@ -51,7 +55,7 @@ The goal is to demonstrate the development direction and gather feedback for adj
 - Use constants for widget and style properties.
 - Define, pass, and use parameters for components.
 
-Please refer to the examples to learn the XML syntax or read this page for more information.
+Please refer to the examples to learn the XML syntax or read [this page](https://docs.lvgl.io/master/details/other-components/xml.html) for more information.
 
 ### Future Plans
 
