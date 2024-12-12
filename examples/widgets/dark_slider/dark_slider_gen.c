@@ -81,18 +81,19 @@ static void dark_slider_constructor(const lv_obj_class_t * class_p, lv_obj_t * o
         lv_style_init(&style_main);
         lv_style_set_bg_color(&style_main, lv_color_hex(0x333333));
         lv_style_set_bg_opa(&style_main, 255);
-        lv_style_set_border_width(&style_main, 2);
-        lv_style_set_border_color(&style_main, lv_color_hex(0xaaaaaa));
-        lv_style_set_radius(&style_main, 100);
+        lv_style_set_radius(&style_main, 10);
         lv_style_set_width(&style_main, 120);
-        lv_style_set_height(&style_main, 16);
+        lv_style_set_height(&style_main, 10);
+        lv_style_set_pad_all(&style_main, 0);
 
         lv_style_init(&style_light_knob);
         lv_style_set_bg_color(&style_light_knob, lv_color_hex(0xeeeeee));
         lv_style_set_bg_opa(&style_light_knob, 255);
-        lv_style_set_border_width(&style_light_knob, 2);
+        lv_style_set_shadow_width(&style_light_knob, 20);
+        lv_style_set_shadow_opa(&style_light_knob, 120);
+        lv_style_set_shadow_offset_y(&style_light_knob, 2);
+        lv_style_set_pad_all(&style_light_knob, 5);
         lv_style_set_radius(&style_light_knob, 100);
-        lv_style_set_border_color(&style_light_knob, lv_color_hex(0xaaaaaa));
 
         lv_style_init(&style_blue_indicator);
         lv_style_set_bg_color(&style_blue_indicator, lv_color_hex(0x0000ff));

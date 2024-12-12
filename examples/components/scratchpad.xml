@@ -1,0 +1,18 @@
+
+<component>
+    <consts>
+        <int name="long" value="250"/>
+    </consts>
+
+    <view extends="lv_obj" width="100%" height="100%" flex_flow="column">
+        <button_default width="#long" button_text="Hello"/>
+        <button_default width="#long" button_text="Hello"/>
+        <button_default width="#long" button_text="Hello"/>
+        <button_error width="#long" button_text="Hello"/>
+        <button_warning width="#long" button_text="Hello"/>
+        <button_default width="#long" button_text="Hello"/>
+        <button_default width="#long" button_text="Hello"/>
+        <button_default width="#long" button_text="Hello"/>
+        <button_default width="#long" button_text="Hello"/>
+    </view>        
+</component>

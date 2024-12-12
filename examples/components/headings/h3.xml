@@ -4,7 +4,7 @@
 	</api>
 
     <styles>
-        <style name="main" text_font="arial_14"/>
+        <style name="main" text_font="inter_sm"/>
     </styles>
     
     <view extends="lv_label" styles="main"  text="$text">
