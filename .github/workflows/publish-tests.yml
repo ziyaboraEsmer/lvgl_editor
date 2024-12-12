@@ -126,7 +126,8 @@ jobs:
                   cd /tmp/build && \
                   emcmake cmake /work/lib && \
                   emmake make -j8 && \
-                  cp liblvgl.a /work/lib/'
+                  mkdir -p /work/lib && \
+                  cp /tmp/build/liblvgl.a /work/lib/'
 
       - name: Build runtime
         run: |
