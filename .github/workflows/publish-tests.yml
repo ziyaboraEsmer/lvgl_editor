@@ -10,9 +10,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Required for pushing to gh-pages
-      pages: write # Required for deploying to Pages
-      id-token: write # Required for deploying to Pages
+      contents: write
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout current repository
@@ -20,20 +20,72 @@ jobs:
         with:
           path: "current-repo"
 
+      # Cache Docker images
+      - name: Cache Docker images
+        uses: ScribeMD/docker-cache@0.3.7
+        with:
+          key: docker-${{ runner.os }}-${{ hashFiles('current-repo/**/*.c', 'current-repo/**/*.h') }}
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Pull Docker image
+        run: docker pull coevin/emscripten-sdl2:main
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18"
 
+      # Get LVGL PR latest commit hash
+      - name: Get LVGL PR latest commit
+        id: lvgl-commit
+        run: |
+          COMMIT_HASH=$(curl -s https://api.github.com/repos/lvgl/lvgl/pulls/7417 | jq -r .head.sha)
+          echo "commit_hash=${COMMIT_HASH}" >> $GITHUB_OUTPUT
+
+      # Cache LVGL PR with commit hash in key
+      - name: Cache LVGL PR
+        id: cache-lvgl
+        uses: actions/cache@v3
+        with:
+          path: /tmp/runtime/lvgl
+          key: lvgl-pr7417-${{ steps.lvgl-commit.outputs.commit_hash }}
+
       - name: Clone editor-online-preview repository
         run: |
           git clone https://github.com/lvgl-private/editor-test-preview.git /tmp/editor-preview
 
+      - name: Clone LVGL PR
+        if: steps.cache-lvgl.outputs.cache-hit != 'true'
+        run: |
+          # Create runtime directory
+          mkdir -p /tmp/runtime
+          # Copy resources to runtime directory
+          cp -r /tmp/editor-preview/resources/* /tmp/runtime/
+          # Clone LVGL PR
+          git clone https://github.com/lvgl/lvgl.git /tmp/runtime/lvgl
+          cd /tmp/runtime/lvgl
+          git fetch origin pull/7417/head:pr-7417
+          git checkout pr-7417
+
+      - name: Copy resources if using cached LVGL
+        if: steps.cache-lvgl.outputs.cache-hit == 'true'
+        run: |
+          mkdir -p /tmp/runtime
+          cp -r /tmp/editor-preview/resources/* /tmp/runtime/
+
+      # Cache build directory with LVGL commit hash
+      - name: Cache build directory
+        id: cache-build
+        uses: actions/cache@v3
+        with:
+          path: /tmp/build
+          key: build-${{ runner.os }}-${{ steps.lvgl-commit.outputs.commit_hash }}-${{ hashFiles('current-repo/**/*.c', 'current-repo/**/*.h') }}
+
       - name: Prepare preview files
         run: |
-          # Create project directory in the preview
           mkdir -p /tmp/editor-preview/project
-          # Copy current repo contents to project directory
           cp -r current-repo/* /tmp/editor-preview/project/
 
       - name: Generate manifest file
@@ -41,8 +93,41 @@ jobs:
           cd /tmp/editor-preview
           node generateProjectManifest.js ./project/ /project/
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      - name: Prepare widget list
+        id: widget-list
+        run: |
+          WIDGET_LIST="[]"
+          if [ -d "current-repo/widgets" ]; then
+            # Find directories in widgets that contain .c files
+            WIDGETS=$(find current-repo/widgets -type f -name "*.c" -exec dirname {} \; | sort -u | xargs -n1 basename)
+            if [ ! -z "$WIDGETS" ]; then
+              # Convert to array of '_widgetname_register'
+              WIDGET_LIST="[$(echo "$WIDGETS" | tr ' ' '\n' | sed "s/.*/'_&_register'/" | tr '\n' ',' | sed 's/,$//' )]"
+            fi
+          fi
+          echo "widget_functions=$WIDGET_LIST" >> $GITHUB_OUTPUT
+
+      - name: Build runtime
+        run: |
+          # Create build directory
+          mkdir -p /tmp/build
+
+          # Run CMake in Docker
+          docker run --rm \
+            -v /tmp/runtime:/work \
+            -v /tmp/editor-preview/project/resources:/output \
+            -v /tmp/build:/build \
+            -v ${{ github.workspace }}/current-repo:/user_src \
+            -w /build \
+            coevin/emscripten-sdl2:main \
+            sh -c 'emcmake cmake -DPROJECT_NAME=lved-runtime \
+              -DOUTPUT_DIR=/output \
+              -DLVGL_SRC_DIR=/work/lvgl \
+              -DLVGL_CONF_DIR=/work/conf \
+              -DUSER_SRC_DIR=/user_src \
+              -DADDITIONAL_EXPORTED_FUNCTIONS="${{ steps.widget-list.outputs.widget_functions }}" \
+              /work && \
+              emmake make -j8'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -51,5 +136,3 @@ jobs:
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-        with:
-          path: /tmp/editor-preview
