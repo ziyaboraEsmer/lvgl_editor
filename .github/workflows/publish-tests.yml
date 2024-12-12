@@ -39,7 +39,7 @@ jobs:
       - name: Generate manifest file
         run: |
           cd /tmp/editor-preview
-          node generateProjectManifest.js ./project/
+          node generateProjectManifest.js ./project/ /project/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
