@@ -12,13 +12,12 @@ LVGL's UI editor is an under-development tool designed to help UI developers cre
 - **Custom widget creation**: Unlike components, widgets have C logic. You can recompile the editor to make it contain the new wodgets' code.
 - **C export**: Both components and widgets can be exported to C, enabling seamless integration into your application, just like handwritten code.
 - **Runtime XML loading**: Components can be loaded from XML at runtime without recompiling the firmware.
-- 
+
 This tool is **developer-centric**, built for those who bring designer-created UIs to life. It’s not a drag-and-drop tool for designers but assumes users are comfortable with writing and managing code. The editor complements your workflow, allowing seamless transitions between generated and handwritten code. Use it where it’s more efficient, and code directly when it’s better suited.
 
 We believe designers should work freely in tools like Figma, focusing on creativity without limitations. LVGL's editor, in turn, helps developers to structure and implement these designs in a maintainable, scalable way. Our goal is to bridge this gap, empowering both designers and developers to excel in their respective roles.
 
-
-TODO Screenshot
+![image](https://github.com/user-attachments/assets/bcc1b7f7-6e54-4c6c-ac69-f2b1a82068ab)
 
 ## Get Started
 
