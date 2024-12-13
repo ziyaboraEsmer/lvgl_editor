@@ -11,7 +11,7 @@ LVGL's UI editor is an under-development tool designed to help UI developers cre
 - **Instant preview**: The components can be previewed as you edit them.
 - **Figma support**: LVGL's Figma plugin helps to quickly extract styles from any Figma elements.
 - **Online preview**: A CI action converts the XML files into a website where they can be previewed.
-- **Custom widget creation**: Unlike components, widgets have C logic. You can recompile the editor to make it contain the new wodgets' code.
+- **Custom widget creation**: Unlike components, widgets have C logic. You can recompile the editor to make it contain the new widgets' code.
 - **C export**: Both components and widgets can be exported to C, enabling seamless integration into your application, just like handwritten code.
 - **Runtime XML loading**: Components can be loaded from XML at runtime without recompiling the firmware.
 
