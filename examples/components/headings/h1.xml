@@ -1,12 +1,12 @@
 <component>    
     <api>
-		<prop name="text" type="string" default="Label"/>
+		<prop name="heading_text" type="string" default="Label"/>
 	</api>
 
     <styles>
         <style name="main" text_font="inter_xl"/>
     </styles>
     
-    <view extends="lv_label" styles="main" text="$text">
+    <view extends="lv_label" styles="main" text="$heading_text">
     </view>
 </component>

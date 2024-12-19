@@ -36,9 +36,9 @@ lv_obj_t * slider_box_create(lv_obj_t * parent);
 
 
 /**
- * Set the undefined
+ * Set the title
  * @param obj   pointer to a slider_box
- * @param title  undefined
+ * @param title  title
  */
 void slider_box_set_title(lv_obj_t * obj, const char * title);
 

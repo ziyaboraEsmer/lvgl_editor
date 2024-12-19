@@ -1,12 +1,11 @@
 /**
- * @file example.c
+ * @file example_gen.c
  *
  */
 
 /*********************
  *      INCLUDES
  *********************/
-#include "example.h"
 
 /*********************
  *      DEFINES
@@ -32,9 +31,11 @@
  *   GLOBAL FUNCTIONS
  **********************/
 
-void example_init(void)
+void example_init_gen(void)
 {
-    example_init_gen();
+	inter_sm = lv_tiny_ttf_create_file("A:/fonts/Inter-SemiBold.ttf", 14);
+	inter_md = lv_tiny_ttf_create_file("A:/fonts/Inter-SemiBold.ttf", 18);
+	inter_xl = lv_tiny_ttf_create_file("A:/fonts/Inter-SemiBold.ttf", 22);
 }
 
 /**********************

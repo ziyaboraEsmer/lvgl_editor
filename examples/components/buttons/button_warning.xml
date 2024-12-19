@@ -23,6 +23,6 @@
     </styles>
 
     <view extends="lv_button" styles="main">
-        <h3 text="$button_label" align="center"/>
+        <h3 heading_text="$button_label" align="center"/>
     </view>
 </component>

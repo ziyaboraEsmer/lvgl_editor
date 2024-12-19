@@ -27,9 +27,8 @@ extern "C" {
 typedef struct {
     lv_obj_t obj;  /* Base widget to extend */
     const char * title;
-    lv_obj_t * lv_label;
-    lv_obj_t * lv_obj;
     lv_obj_t * lv_button;
+    lv_obj_t * lv_label;
     lv_obj_t * lv_label2;
     lv_obj_t * lv_button2;
     lv_obj_t * lv_label3;

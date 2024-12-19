@@ -13,10 +13,7 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
-
-/*Include all the widget and components of this library*/
-#include "dark_slider/dark_slider.h"
-#include "slider_box/slider_box.h"
+#include "example_gen.h"
 
 /*********************
  *      DEFINES

@@ -29,9 +29,6 @@ extern "C" {
 /**********************
  * GLOBAL VARIABLES
  **********************/
- extern lv_font_t * inter_sm;
- extern lv_font_t * inter_md;
- extern lv_font_t * inter_xl;
 
 /**********************
  * GLOBAL PROTOTYPES

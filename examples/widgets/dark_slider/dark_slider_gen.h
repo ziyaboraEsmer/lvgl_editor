@@ -36,9 +36,9 @@ lv_obj_t * dark_slider_create(lv_obj_t * parent);
 
 
 /**
- * Set the undefined
+ * Set the color
  * @param obj   pointer to a dark_slider
- * @param color  undefined
+ * @param color  color
  */
 void dark_slider_set_color(lv_obj_t * obj, lv_color_t color);
 
