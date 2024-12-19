@@ -24,6 +24,15 @@
  **********************/
 
 /**********************
+ *  GLOBAL VARIABLES
+ **********************/
+
+/*Fonts*/
+lv_font_t inter_sm;
+lv_font_t inter_md;
+lv_font_t inter_xl;
+
+/**********************
  *      MACROS
  **********************/
 

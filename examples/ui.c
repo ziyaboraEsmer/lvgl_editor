@@ -33,8 +33,7 @@
  **********************/
 
 void ui_init(void)
-{
-	   
+{	   
 	example_init();
 }
 

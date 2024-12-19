@@ -15,8 +15,8 @@ extern "C" {
  *********************/
 
 /*Include all the widget and components of this library*/
-#include "dark_slider/dark_slider.h"
-#include "slider_box/slider_box.h"
+#include "widgets/dark_slider/dark_slider.h"
+#include "widgets/slider_box/slider_box.h"
 #include "components/headings/h1_gen.h"
 #include "components/headings/h2_gen.h"
 #include "components/headings/h3_gen.h"
@@ -37,6 +37,11 @@ extern "C" {
 /**********************
  * GLOBAL VARIABLES
  **********************/
+
+/*Fonts*/
+extern lv_font_t inter_sm;
+extern lv_font_t inter_md;
+extern lv_font_t inter_xl;
 
 /**********************
  * GLOBAL PROTOTYPES
