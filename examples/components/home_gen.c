@@ -12,11 +12,11 @@ lv_obj_t * home_create(lv_obj_t * parent)
 static lv_style_t style_left_cont;
 static lv_style_t style_right_cont;
 
-    static bool style_main_inited = false;
+    static bool style_inited = false;
 
-    if(!style_main_inited) {
+    if(!style_inited) {
 
-    
+
         lv_style_init(&style_main);
             lv_style_set_bg_color(&style_main, lv_color_hex(0x111111));
 
@@ -32,6 +32,8 @@ static lv_style_t style_right_cont;
 
     lv_style_set_height(&style_main, lv_pct(100));
 
+    lv_style_set_pad_all(&style_main, 0);
+
     lv_style_set_pad_column(&style_main, 0);
 
 
@@ -46,6 +48,8 @@ static lv_style_t style_right_cont;
 
     lv_style_set_radius(&style_cont, 0);
 
+    lv_style_set_pad_all(&style_cont, 0);
+
     lv_style_set_pad_row(&style_cont, 16);
 
 
@@ -53,6 +57,8 @@ static lv_style_t style_right_cont;
             lv_style_set_width(&style_left_cont, LV_SIZE_CONTENT);
 
     lv_style_set_border_width(&style_left_cont, 0);
+
+    lv_style_set_pad_all(&style_left_cont, 16);
 
 
         lv_style_init(&style_right_cont);
@@ -68,14 +74,16 @@ static lv_style_t style_right_cont;
 
     lv_style_set_flex_cross_place(&style_right_cont, LV_FLEX_ALIGN_CENTER);
 
+    lv_style_set_pad_all(&style_right_cont, 16);
 
-        style_main_inited = true;
+
+        style_inited = true;
     }
 
     lv_obj_t * obj = lv_obj_create(parent);
     
-    lv_obj_add_style(obj, &style_main, LV_STATE_DEFAULT);
-         lv_obj_add_style(obj, &style_main, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+    lv_obj_add_style(obj, &style_main, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_t * lv_obj = lv_obj_create(obj);
     lv_obj_add_style(lv_obj, &style_cont, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_add_style(lv_obj, &style_left_cont, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -97,12 +105,13 @@ static lv_style_t style_right_cont;
     lv_obj_t * lv_obj_2 = lv_obj_create(obj);
     lv_obj_add_style(lv_obj_2, &style_cont, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_add_style(lv_obj_2, &style_right_cont, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_flex_grow(lv_obj_2, 1);
     lv_obj_t * button_default = button_default_create(lv_obj_2, "Ok");
     lv_obj_t * button_default_2 = button_default_create(lv_obj_2, "Cancel");
     lv_obj_t * dark_slider = dark_slider_create(lv_obj_2);
     lv_obj_set_width(dark_slider, lv_pct(100));
     dark_slider_set_color(dark_slider, lv_color_hex(0xf03c0f));
-    lv_obj_set_send_draw_task_events(dark_slider, true);
+    lv_obj_update_flag(dark_slider, LV_OBJ_FLAG_SEND_DRAW_TASK_EVENTS, true);
     lv_obj_t * button_warning = button_warning_create(lv_obj_2, "Alert 1");
     lv_obj_t * button_warning_2 = button_warning_create(lv_obj_2, "Alert 2");
     lv_obj_t * button_error = button_error_create(lv_obj_2, "Error 1");

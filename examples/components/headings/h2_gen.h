@@ -6,6 +6,6 @@
 
 
 
-lv_obj_t * h2_create(lv_obj_t * parent, const char * text);
+lv_obj_t * h2_create(lv_obj_t * parent, const char * heading_text);
 
 #endif /*H2_H*/

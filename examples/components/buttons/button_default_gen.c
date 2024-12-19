@@ -10,11 +10,11 @@ lv_obj_t * button_default_create(lv_obj_t * parent, const char * button_label)
     
     static lv_style_t style_pr;
 
-    static bool style_main_inited = false;
+    static bool style_inited = false;
 
-    if(!style_main_inited) {
+    if(!style_inited) {
 
-    
+
         lv_style_init(&style_main);
             lv_style_set_bg_color(&style_main, lv_color_hex(0x222222));
 
@@ -39,14 +39,15 @@ lv_obj_t * button_default_create(lv_obj_t * parent, const char * button_label)
     lv_style_set_shadow_opa(&style_pr, 40);
 
 
-        style_main_inited = true;
+        style_inited = true;
     }
 
     lv_obj_t * obj = lv_button_create(parent);
     
-    lv_obj_add_style(obj, &style_main, LV_STATE_DEFAULT);lv_obj_add_style(obj, &style_pr, LV_STATE_PRESSED);
-         lv_obj_add_style(obj, &style_main, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_t * h3 = h3_create(obj, "$button_label");
+
+    lv_obj_add_style(obj, &style_main, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_add_style(obj, &style_pr, LV_PART_MAIN | LV_STATE_PRESSED);
+    lv_obj_t * h3 = h3_create(obj, button_label);
     lv_obj_set_align(h3, LV_ALIGN_CENTER);
 
 

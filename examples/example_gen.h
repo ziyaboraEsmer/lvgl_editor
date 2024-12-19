@@ -14,6 +14,8 @@ extern "C" {
  *      INCLUDES
  *********************/
 
+#include "lvgl/lvgl.h"
+
 /*Include all the widget and components of this library*/
 #include "widgets/dark_slider/dark_slider.h"
 #include "widgets/slider_box/slider_box.h"
@@ -39,9 +41,9 @@ extern "C" {
  **********************/
 
 /*Fonts*/
-extern lv_font_t inter_sm;
-extern lv_font_t inter_md;
-extern lv_font_t inter_xl;
+extern lv_font_t * inter_sm;
+extern lv_font_t * inter_md;
+extern lv_font_t * inter_xl;
 
 /**********************
  * GLOBAL PROTOTYPES

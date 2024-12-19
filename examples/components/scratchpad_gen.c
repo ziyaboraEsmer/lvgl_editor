@@ -10,20 +10,21 @@ lv_obj_t * scratchpad_create(lv_obj_t * parent)
     
     
 
-    static bool style_main_inited = false;
+    static bool style_inited = false;
 
-    if(!style_main_inited) {
+    if(!style_inited) {
 
-    
 
-        style_main_inited = true;
+
+        style_inited = true;
     }
 
     lv_obj_t * obj = lv_obj_create(parent);
     
-    
-         lv_obj_set_width(obj, lv_pct(100));
+
+    lv_obj_set_width(obj, lv_pct(100));
     lv_obj_set_height(obj, lv_pct(100));
+    lv_obj_set_flex_flow(obj, LV_FLEX_FLOW_COLUMN);
     lv_obj_t * button_default = button_default_create(obj, "Button");
     lv_obj_set_width(button_default, 250);
     lv_obj_t * button_default_2 = button_default_create(obj, "Button");

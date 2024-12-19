@@ -33,7 +33,8 @@
  **********************/
 
 void ui_init(void)
-{	   
+{	
+	LV_LOG_USER("ui_init()\n");
 	example_init();
 }
 

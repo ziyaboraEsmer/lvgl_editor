@@ -37,6 +37,7 @@
 
 void slider_box_constructor_hook(lv_obj_t * obj)
 {
+	LV_LOG_USER("Create a slider box\n");
     slider_box_t * slider_box = (slider_box_t *)obj;
 
     lv_obj_add_event_cb(slider_box->lv_button, decerease_event_cb, LV_EVENT_CLICKED, slider_box->dark_slider);
@@ -62,13 +63,13 @@ void slider_box_set_title(lv_obj_t * obj, const char * title)
 {
     slider_box_t * slider_box = (slider_box_t *)obj;
     slider_box->title = title;
-    lv_label_set_text(slider_box->lv_label, title);
+    lv_label_set_text(slider_box->lv_label2, title);
 }
 
 const char * slider_box_get_title(lv_obj_t * obj)
 {
     slider_box_t * slider_box = (slider_box_t *)obj;
-    return lv_label_get_text(slider_box->lv_label);
+    return lv_label_get_text(slider_box->lv_label2);
 }
 
 /**********************

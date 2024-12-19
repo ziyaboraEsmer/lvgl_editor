@@ -78,8 +78,6 @@ static void slider_box_constructor(const lv_obj_class_t * class_p, lv_obj_t * ob
 
     if(!style_main_inited) {
 
-    
-
         lv_style_init(&style_main);
             lv_style_set_bg_color(&style_main, lv_color_hex(0x666666));
 
@@ -102,6 +100,8 @@ static void slider_box_constructor(const lv_obj_class_t * class_p, lv_obj_t * ob
     lv_style_set_pad_row(&style_main, 10);
 
     lv_style_set_pad_column(&style_main, 4);
+
+    lv_style_set_pad_all(&style_main, 16);
 
     lv_style_set_text_font(&style_main, inter_sm);
 
@@ -139,6 +139,7 @@ static void slider_box_constructor(const lv_obj_class_t * class_p, lv_obj_t * ob
     slider_box->lv_label2 = lv_label_create(obj);
     lv_obj_set_align(slider_box->lv_label2, LV_ALIGN_TOP_MID);
     lv_label_set_text(slider_box->lv_label2, "Title");
+    lv_obj_set_flex_grow(slider_box->lv_label2, 1);
     lv_obj_set_style_text_align(slider_box->lv_label2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_width(slider_box->lv_label2, LV_SIZE_CONTENT);
     lv_label_set_long_mode(slider_box->lv_label2, LV_LABEL_LONG_MODE_SCROLL);

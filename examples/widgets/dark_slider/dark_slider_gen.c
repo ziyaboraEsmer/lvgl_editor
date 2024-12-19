@@ -92,6 +92,8 @@ static lv_style_t style_blue_indicator;
 
     lv_style_set_height(&style_main, 10);
 
+    lv_style_set_pad_all(&style_main, 0);
+
 
 
         lv_style_init(&style_light_knob);
@@ -106,6 +108,8 @@ static lv_style_t style_blue_indicator;
     lv_style_set_shadow_offset_y(&style_light_knob, 2);
 
     lv_style_set_radius(&style_light_knob, 100);
+
+    lv_style_set_pad_all(&style_light_knob, 5);
 
 
 
