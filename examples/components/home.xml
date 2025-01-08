@@ -27,7 +27,6 @@
                width="content"
                border_width="0"
                pad_all="16"/>     
-        
 
         <style name="right_cont"
                layout="flex"
