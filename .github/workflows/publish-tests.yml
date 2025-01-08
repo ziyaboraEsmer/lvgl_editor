@@ -86,10 +86,15 @@ jobs:
             coevin/emscripten-sdl2:main \
             sh -c 'mkdir -p /tmp/build && \
                   cd /tmp/build && \
-                  emcmake cmake /work/lib && \
+                  emcmake cmake /work/lvgl && \
                   emmake make -j8 && \
                   mkdir -p /work/lib && \
-                  cp /tmp/build/liblvgl.a /work/lib/'
+                  echo "Contents of /tmp/build:" && \
+                  ls -la /tmp/build && \
+                  echo "Finding liblvgl.a:" && \
+                  find /tmp/build -name "liblvgl.a" -exec cp {} /work/lib/ \; && \
+                  echo "Contents of /work/lib:" && \
+                  ls -la /work/lib'
 
       - name: Build runtime
         run: |
