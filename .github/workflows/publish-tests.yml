@@ -56,7 +56,7 @@ jobs:
       - name: Generate manifest file
         run: |
           cd /tmp/editor-preview
-          node generateProjectManifest.js ./project/ ./
+          node generateProjectManifest.js ./project/ project/
 
       - name: Prepare widget list
         id: widget-list
