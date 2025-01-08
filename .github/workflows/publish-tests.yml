@@ -82,18 +82,20 @@ jobs:
         run: |
           docker run --rm \
             -v /tmp/runtime:/work \
-            -w /work/lib \
+            -w /work/lvgl \
             coevin/emscripten-sdl2:main \
-            sh -c 'mkdir -p /tmp/build && \
-                  cd /tmp/build && \
-                  emcmake cmake /work/lvgl && \
+            sh -c 'mkdir -p build && \
+                  cp /work/conf/lv_conf.h . && \
+                  cd build && \
+                  emcmake cmake .. && \
                   emmake make -j8 && \
                   mkdir -p /work/lib && \
-                  echo "Contents of /tmp/build:" && \
-                  ls -la /tmp/build && \
-                  echo "Finding liblvgl.a:" && \
-                  find /tmp/build -name "liblvgl.a" -exec cp {} /work/lib/ \; && \
-                  echo "Contents of /work/lib:" && \
+                  cp lib/liblvgl.a /work/lib/ && \
+                  echo "Contents of current directory:" && \
+                  ls -la && \
+                  echo "Contents of build directory:" && \
+                  ls -la build && \
+                  echo "Contents of lib directory:" && \
                   ls -la /work/lib'
 
       - name: Build runtime
