@@ -116,10 +116,10 @@ jobs:
               -DLVGL_SRC_DIR=/work/lvgl \
               -DLVGL_CONF_DIR=/work/conf \
               -DUSER_SRC_DIR=/user_src \
-              -DCMAKE_INCLUDE_PATH=/user_src \
+              -DCMAKE_C_FLAGS="-I/user_src" \
               -DADDITIONAL_EXPORTED_FUNCTIONS="${{ steps.widget-list.outputs.widget_functions }}" \
               /work && \
-              emmake make -j8 CFLAGS="-I/user_src"'
+              emmake make -j8'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
