@@ -108,7 +108,7 @@ jobs:
             -v /tmp/runtime:/work \
             -v /tmp/editor-preview/project/resources:/output \
             -v /tmp/build:/build \
-            -v ${{ github.workspace }}/current-repo:/user_src \
+            -v ${{ github.workspace }}/current-repo/examples:/user_src \
             -w /build \
             coevin/emscripten-sdl2:main \
             sh -c 'emcmake cmake -DPROJECT_NAME=lved-runtime \
