@@ -68,9 +68,9 @@ jobs:
         id: widget-list
         run: |
           WIDGET_LIST="[]"
-          if [ -d "current-repo/widgets" ]; then
+          if [ -d "current-repo/examples/widgets" ]; then
             # Find directories in widgets that contain .c files
-            WIDGETS=$(find current-repo/widgets -type f -name "*.c" -exec dirname {} \; | sort -u | xargs -n1 basename)
+            WIDGETS=$(find current-repo/examples/widgets -type f -name "*.c" -exec dirname {} \; | sort -u | xargs -n1 basename)
             if [ ! -z "$WIDGETS" ]; then
               # Convert to array of '_widgetname_register'
               WIDGET_LIST="[$(echo "$WIDGETS" | tr ' ' '\n' | sed "s/.*/'_&_register'/" | tr '\n' ',' | sed 's/,$//' )]"
