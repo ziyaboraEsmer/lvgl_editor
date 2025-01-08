@@ -90,12 +90,12 @@ jobs:
                   emcmake cmake .. && \
                   emmake make -j8 && \
                   mkdir -p /work/lib && \
-                  cp lib/liblvgl.a /work/lib/ && \
                   echo "Contents of current directory:" && \
                   ls -la && \
-                  echo "Contents of build directory:" && \
-                  ls -la build && \
                   echo "Contents of lib directory:" && \
+                  ls -la lib && \
+                  cp lib/liblvgl.a /work/lib/ && \
+                  echo "Contents of destination directory:" && \
                   ls -la /work/lib'
 
       - name: Build runtime
