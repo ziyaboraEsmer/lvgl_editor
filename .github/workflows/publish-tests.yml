@@ -31,18 +31,11 @@ jobs:
         with:
           node-version: "18"
 
-      # Get LVGL PR latest commit hash
-      - name: Get LVGL PR latest commit
-        id: lvgl-commit
-        run: |
-          COMMIT_HASH=$(curl -s https://api.github.com/repos/lvgl/lvgl/pulls/7417 | jq -r .head.sha)
-          echo "commit_hash=${COMMIT_HASH}" >> $GITHUB_OUTPUT
-
       - name: Clone editor-online-preview repository
         run: |
           git clone https://github.com/lvgl-private/editor-test-preview.git /tmp/editor-preview
 
-      - name: Clone LVGL PR
+      - name: Clone latest LVGL
         run: |
           # Create runtime directory
           mkdir -p /tmp/runtime
@@ -58,19 +51,20 @@ jobs:
         run: |
           mkdir -p /tmp/editor-preview/project
           cp -r current-repo/* /tmp/editor-preview/project/
+          rm -rf /tmp/editor-preview/project/resources
 
       - name: Generate manifest file
         run: |
           cd /tmp/editor-preview
-          node generateProjectManifest.js ./project/ /project/
+          node generateProjectManifest.js ./project/ project/
 
       - name: Prepare widget list
         id: widget-list
         run: |
           WIDGET_LIST="[]"
-          if [ -d "current-repo/examples/widgets" ]; then
+          if [ -d "/tmp/editor-preview/project/examples/widgets" ]; then
             # Find directories in widgets that contain .c files
-            WIDGETS=$(find current-repo/examples/widgets -type f -name "*.c" -exec dirname {} \; | sort -u | xargs -n1 basename)
+            WIDGETS=$(find /tmp/editor-preview/project/examples/widgets -type f -name "*.c" -exec dirname {} \; | sort -u | xargs -n1 basename)
             if [ ! -z "$WIDGETS" ]; then
               # Convert to array of '_widgetname_register'
               WIDGET_LIST="[$(echo "$WIDGETS" | tr ' ' '\n' | sed "s/.*/'_&_register'/" | tr '\n' ',' | sed 's/,$//' )]"
@@ -106,9 +100,9 @@ jobs:
           # Run CMake in Docker
           docker run --rm \
             -v /tmp/runtime:/work \
-            -v /tmp/editor-preview/project/resources:/output \
+            -v /tmp/editor-preview/resources:/output \
             -v /tmp/build:/build \
-            -v ${{ github.workspace }}/current-repo/examples:/user_src \
+            -v /tmp/editor-preview/project/examples:/user_src \
             -w /build \
             coevin/emscripten-sdl2:main \
             sh -c 'emcmake cmake -DPROJECT_NAME=lved-runtime \
