@@ -43,9 +43,6 @@ jobs:
           cp -r /tmp/editor-preview/resources/* /tmp/runtime/
           # Clone LVGL PR
           git clone https://github.com/lvgl/lvgl.git /tmp/runtime/lvgl
-          cd /tmp/runtime/lvgl
-          git fetch origin pull/7417/head:pr-7417
-          git checkout pr-7417
 
       - name: Prepare preview files
         run: |
