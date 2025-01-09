@@ -28,11 +28,11 @@ We believe designers should work freely in tools like Figma, focusing on creativ
 1. **Fork this repository** to experiment with its CI actions and online preview features.
 2. **Clone your fork** to your local machine.
 3. **Download and install the Editor.**
-4. **Copy the example Figma design** provided.
-5. **Open the editor** and load the example folder.
-6. **Edit components**: Open `my_button.xml` and edit it. Save the file (Ctrl+S) to update the preview.
-7. **Edit a widget**: Open `slider_box.xml` (a widget) and click "Compile Code" (requires Docker installed). It will comple the C code next to the widget's XML. Feel free to tedit the C code and recompile again.
-8. **Check all this togother**.: Open `main_screen.xml`; now the slider box should work.
+4. **Open the editor** and load the example folder.
+5. **Edit components**: Open `my_button.xml` and edit it. Save the file (Ctrl+S) to update the preview.
+6. **Edit a widget**: Open `slider_box.xml` (a widget) and click "Compile Code" (requires Docker installed). It will comple the C code next to the widget's XML. Feel free to tedit the C code and recompile again.
+8. **Check all these together**.: Open `main_screen.xml`; now the slider box should work.
+7. **Open the Figma project** See [here](https://www.figma.com/design/itmQpC9m5HessaOZFbYTwK/Example?node-id=0-1&t=oWqPUdcRyVYtRgAY-0).
 9. **Play with Figma**: Modify the Figma design and use the plugin to update style properties of the components. 
 10. **Try out the online preview**: Commit and push your changes. Wait for the CI to run and check the online preview.
 11. Open an issue if you encounter any problems or get stuck. 😊
