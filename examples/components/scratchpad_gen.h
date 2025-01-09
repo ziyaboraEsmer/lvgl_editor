@@ -31,7 +31,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-#define SCRATCHPAD_LONG 250
+#define SCRATCHPAD_LONG 100%
 
 lv_obj_t * scratchpad_create(lv_obj_t * parent);
 /**********************
