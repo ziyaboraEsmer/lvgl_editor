@@ -25,7 +25,7 @@ We believe designers should work freely in tools like Figma, focusing on creativ
 
 1. **Fork this repository** to experiment with its CI actions and online preview features.
 2. **Clone your fork** to your local machine.
-3. **Download and install the Editor.**
+3. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases/tag/v0.1.0).
 4. **Open the editor** and load the example folder.
 5. **Edit components**: Open `my_button.xml` and edit it. Save the file (Ctrl+S) to update the preview.
 6. **Edit a widget**: Open `slider_box.xml` (a widget) and click "Compile Code" (requires Docker installed). It will comple the C code next to the widget's XML. Feel free to tedit the C code and recompile again.
