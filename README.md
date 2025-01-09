@@ -23,8 +23,6 @@ We believe designers should work freely in tools like Figma, focusing on creativ
 
 ## Get Started
 
-**⚠️ These will apply when v0.1 is relased in January**
-
 1. **Fork this repository** to experiment with its CI actions and online preview features.
 2. **Clone your fork** to your local machine.
 3. **Download and install the Editor.**
