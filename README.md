@@ -24,18 +24,17 @@ We believe designers should work freely in tools like Figma, focusing on creativ
 ## Get Started
 
 1. **Install Docker**: Docker is required to compile your code and integrate it into the editor. Find the Docker installation guide [here](https://docs.docker.com/engine/install/).
-2. **Fork this repository** to experiment with its CI actions and online preview features.
-3. **Clone your fork** to your local machine.
-4. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases/tag/v0.1.0).
-5. **Open the editor** and load the example folder.
-6. **Compile the project** to generate the custom C code in the editor’s preview (use the button in the top-right corner).  
-7. **Edit components**: Open `button_default.xml` and make edits. Save the file (Ctrl+S) to update the preview.
-8. **Edit a widget**: Open `slider_box.xml` (a widget) and click "Compile Code." It will compile the C code alongside the widget's XML. Feel free to edit the C code and recompile it.
-9. **Check it all together**: Open `main_screen.xml`; now the slider box should work.
-10. **Open the Figma project**: See [here](https://www.figma.com/design/itmQpC9m5HessaOZFbYTwK/Example?node-id=0-1&t=oWqPUdcRyVYtRgAY-0).
-11. **Play with Figma**: Modify the Figma design and use the plugin to update style properties of the components.
-12. **Try the online preview**: Commit and push your changes. Wait for the CI to run and check the online preview.
-13. **Open an issue** if you encounter problems or get stuck. 😊
+2. **Fork and clone this repository** to experiment with its CI actions and online preview features.
+3. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases/tag/v0.1.0).
+4. **Open the editor** and load the example folder.
+5. **Compile the project** to generate the custom C code in the editor’s preview (use the button in the top-right corner).  
+6. **Edit components**: Open `button_default.xml` and make edits. Save the file (Ctrl+S) to update the preview.
+7. **Edit a widget**: Open `slider_box.xml` (a widget) and click "Compile Code." It will compile the C code alongside the widget's XML. Feel free to edit the C code and recompile it.
+8. **Check it all together**: Open `main_screen.xml`; now the slider box should work.
+9. **Open the [Figma project](https://www.figma.com/design/itmQpC9m5HessaOZFbYTwK/Example?node-id=0-1&t=oWqPUdcRyVYtRgAY-0)** and duplicate it.
+10. **Play with Figma**: Modify the Figma design and use the plugin to update style properties of the components.
+11. **Try the online preview**: Commit and push your changes. Wait for the CI to run and check the online preview.
+12. **Open an issue** if you encounter problems or get stuck. 😊
 
 ## Current Status and Future Plans
 
