@@ -25,10 +25,10 @@ We believe designers should work freely in tools like Figma, focusing on creativ
 
 1. **Install Docker**: Docker is required to compile your code and integrate it into the editor. Find the Docker installation guide [here](https://docs.docker.com/engine/install/).
 2. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases/tag/v0.1.0).
-3. **Fork and clone this repository** to experiment with its CI actions and online preview features. In the repository settings set the source of `Pages` to `GitHub Action`, an on the `Actions` page enable actions. 
+3. **Fork and clone this repository** to experiment with its CI actions and online preview features. In the repository settings set the source of `Pages` to `GitHub Action`, and on the `Actions` page enable actions. 
 4. **Open the editor** and load the example folder.
 5. **Compile the project** to generate the custom C code in the editor’s preview (use the button in the top-right corner).  
-6. **Edit components**: Open `button_default.xml` and make edits. Save the file (Ctrl+S) to update the preview.
+6. **Edit components**: Open `button_default.xml` and make edits. Save the file (Ctrl+S) to update the preview. Learn more about LVGL's XML language [here](https://docs.lvgl.io/master/details/other-components/xml.html).
 7. **Edit a widget**: Open `slider_box.xml` (a widget) and click "Compile Code." It will compile the C code alongside the widget's XML. Feel free to edit the C code and recompile it.
 8. **Ckeck out Fonts and Images**: Open `globals.xml` to see how images and fonts are handled.
 9. **Open the [Figma project](https://www.figma.com/design/itmQpC9m5HessaOZFbYTwK/Example?node-id=0-1&t=oWqPUdcRyVYtRgAY-0)** and duplicate it.
