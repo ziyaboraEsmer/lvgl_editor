@@ -19,7 +19,13 @@ This tool is **developer-centric**, designed for those who bring designer-create
 
 We believe designers should work freely in tools like Figma, focusing on creativity without limitations. LVGL's editor helps developers structure and implement these designs in a maintainable, scalable way. Our goal is to bridge the gap, empowering both designers and developers to excel in their roles.
 
-![image](https://github.com/user-attachments/assets/bcc1b7f7-6e54-4c6c-ac69-f2b1a82068ab)
+---
+
+This video provides a step-by-step guide to all the support features
+
+[![image](https://github.com/user-attachments/assets/2c72c3c9-44fa-4ae4-8616-867e2efe3209)
+](https://youtu.be/gCxBAK9EByA)
+
 
 ## Get Started
 
