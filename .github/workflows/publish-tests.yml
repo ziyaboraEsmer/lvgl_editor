@@ -1,9 +1,9 @@
-name: Publish Tests
+name: Publish Examples
 
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Pull Docker image
-        run: docker pull coevin/emscripten-sdl2:main
+        run: docker pull lvglio/emscripten-sdl2:0.1.0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -33,61 +33,40 @@ jobs:
 
       - name: Clone editor-online-preview repository
         run: |
-          git clone https://github.com/lvgl-private/editor-test-preview.git /tmp/editor-preview
+          git clone https://github.com/lvgl-private/editor-online-preview.git /tmp/online-preview
 
       - name: Clone latest LVGL
         run: |
           # Create runtime directory
           mkdir -p /tmp/runtime
           # Copy resources to runtime directory
-          cp -r /tmp/editor-preview/resources/* /tmp/runtime/
+          cp -r /tmp/online-preview/runtime/* /tmp/runtime/
           # Clone LVGL PR
           git clone https://github.com/lvgl/lvgl.git /tmp/runtime/lvgl
 
       - name: Prepare preview files
         run: |
-          mkdir -p /tmp/editor-preview/project
-          cp -r current-repo/* /tmp/editor-preview/project/
-          rm -rf /tmp/editor-preview/project/resources
+          mkdir -p /tmp/online-preview/project
+          cp -r current-repo/* /tmp/online-preview/project/
+          rm -rf /tmp/online-preview/project/runtime
 
       - name: Generate manifest file
         run: |
-          cd /tmp/editor-preview
+          cd /tmp/online-preview
           node generateProjectManifest.js ./project/ project/
-
-      - name: Prepare widget list
-        id: widget-list
-        run: |
-          WIDGET_LIST="[]"
-          if [ -d "/tmp/editor-preview/project/examples/widgets" ]; then
-            # Find directories in widgets that contain .c files
-            WIDGETS=$(find /tmp/editor-preview/project/examples/widgets -type f -name "*.c" -exec dirname {} \; | sort -u | xargs -n1 basename)
-            if [ ! -z "$WIDGETS" ]; then
-              # Convert to array of '_widgetname_register'
-              WIDGET_LIST="[$(echo "$WIDGETS" | tr ' ' '\n' | sed "s/.*/'_&_register'/" | tr '\n' ',' | sed 's/,$//' )]"
-            fi
-          fi
-          echo "widget_functions=$WIDGET_LIST" >> $GITHUB_OUTPUT
 
       - name: Build LVGL library
         run: |
           docker run --rm \
             -v /tmp/runtime:/work \
-            -w /work/lvgl \
-            coevin/emscripten-sdl2:main \
-            sh -c 'mkdir -p build && \
-                  cp /work/conf/lv_conf.h . && \
-                  cd build && \
-                  emcmake cmake .. && \
-                  emmake make -j8 && \
-                  mkdir -p /work/lib && \
-                  echo "Contents of current directory:" && \
-                  ls -la && \
-                  echo "Contents of lib directory:" && \
-                  ls -la lib && \
-                  cp lib/liblvgl.a /work/lib/ && \
-                  echo "Contents of destination directory:" && \
-                  ls -la /work/lib'
+            -w /tmp \
+            lvglio/emscripten-sdl2:0.1.0 \
+            sh -c 'apt-get update && \
+                  apt-get install -y python3-venv && \
+                  cd /work/lib && \
+                  mkdir -p /tmp/build && cd /tmp/build && \
+                  emcmake cmake /work/lib && \
+                  emmake make -j$(nproc)'
 
       - name: Build runtime
         run: |
@@ -97,25 +76,25 @@ jobs:
           # Run CMake in Docker
           docker run --rm \
             -v /tmp/runtime:/work \
-            -v /tmp/editor-preview/resources:/output \
+            -v /tmp/online-preview/runtime:/output \
             -v /tmp/build:/build \
-            -v /tmp/editor-preview/project/examples:/user_src \
+            -v /tmp/online-preview/project/examples:/user_src \
             -w /build \
-            coevin/emscripten-sdl2:main \
+            lvglio/emscripten-sdl2:0.1.0 \
             sh -c 'emcmake cmake -DPROJECT_NAME=lved-runtime \
               -DOUTPUT_DIR=/output \
               -DLVGL_SRC_DIR=/work/lvgl \
               -DLVGL_CONF_DIR=/work/conf \
               -DUSER_SRC_DIR=/user_src \
               -DCMAKE_C_FLAGS="-I/user_src" \
-              -DADDITIONAL_EXPORTED_FUNCTIONS="${{ steps.widget-list.outputs.widget_functions }}" \
               /work && \
+              cat /user_src/examples_gen.h && \
               emmake make -j8'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: /tmp/editor-preview
+          path: /tmp/online-preview
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
