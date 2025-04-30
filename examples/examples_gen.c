@@ -86,8 +86,25 @@ void examples_init_gen(const char * asset_path)
         lv_xml_register_image(NULL, "wink", wink);
 
         lv_xml_register_subject(NULL, "room_1_temp", &subject_room_1_temp);
+
+        lv_xml_register_event_cb(NULL, "my_first_cb", my_first_cb);
+        lv_xml_register_event_cb(NULL, "my_second_cb", my_second_cb);
     #endif
 }
+
+/* callbacks */
+#if defined(LV_EDITOR_PREVIEW)
+void __attribute__((weak)) my_first_cb(lv_event_t * e)
+{
+   LV_UNUSED(e);
+   LV_LOG("my_first_cb was called\n");
+}
+void __attribute__((weak)) my_second_cb(lv_event_t * e)
+{
+   LV_UNUSED(e);
+   LV_LOG("my_second_cb was called\n");
+}
+#endif
 
 /**********************
  *   STATIC FUNCTIONS

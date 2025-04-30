@@ -79,7 +79,7 @@ static void slider_box_constructor(const lv_obj_class_t * class_p, lv_obj_t * ob
     if(!style_inited) {
         
         lv_style_init(&style_main);
-        lv_style_set_bg_color(&style_main, lv_color_hex(0x000666));
+        lv_style_set_bg_color(&style_main, lv_color_hex(0x848592));
         lv_style_set_bg_opa(&style_main, 255);
         lv_style_set_radius(&style_main, 12);
         lv_style_set_width(&style_main, 180);

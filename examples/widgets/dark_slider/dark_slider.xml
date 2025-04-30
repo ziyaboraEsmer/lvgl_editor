@@ -1,4 +1,10 @@
 <widget>
+    <previews>
+        <preview  width="200" height="100"
+                style_pad_all="30" 
+                style_bg_color="0x888888"/>
+    </previews>
+
     <api>
         <prop name="color" type="color"/>
     </api>
@@ -19,12 +25,11 @@
                pad_all="5"/>
         <style name="blue_indicator" 
                bg_color="0x0000ff" bg_opa="255" 
-               radius="100"
-               />
+               radius="100" />
     </styles>
 
     <view extends="lv_slider" 
           styles="main light_knob:knob blue_indicator:indicator" 
-          align="center" range="20 40" send_draw_task_events="true">
+          range="20 40" send_draw_task_events="true">
     </view>
 </widget>

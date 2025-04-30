@@ -1,4 +1,6 @@
 <screen>
+    <!-- Previews of the displays are defined in project.xml -->
+    
     <consts>
         <int name="slider_box_width" value="155"/>
     </consts>

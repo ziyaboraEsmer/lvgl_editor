@@ -31,6 +31,7 @@ extern "C" {
 #include "components/headings/h2_gen.h"
 #include "components/headings/h3_gen.h"
 #include "components/scratchpad_gen.h"
+#include "components/test_gen.h"
 #include "screens/home_gen.h"
 
 /*********************
@@ -47,6 +48,10 @@ extern "C" {
 /**********************
  * GLOBAL VARIABLES
  **********************/
+
+/* callbacks */
+void my_first_cb(lv_event_t * e);
+void my_second_cb(lv_event_t * e);
 
 /*Fonts*/
 extern lv_font_t * inter_sm;
