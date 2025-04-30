@@ -106,7 +106,6 @@ static void dark_slider_constructor(const lv_obj_class_t * class_p, lv_obj_t * o
     lv_obj_add_style(obj, &style_main, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_add_style(obj, &style_light_knob, LV_PART_KNOB | LV_STATE_DEFAULT);
     lv_obj_add_style(obj, &style_blue_indicator, LV_PART_INDICATOR | LV_STATE_DEFAULT);
-    lv_obj_set_align(obj, LV_ALIGN_CENTER);
     lv_slider_set_range(obj, 20, 40);
     lv_obj_set_flag(obj, LV_OBJ_FLAG_SEND_DRAW_TASK_EVENTS, true);
 

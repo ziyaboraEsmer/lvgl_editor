@@ -103,7 +103,6 @@ static void slider_box_constructor(const lv_obj_class_t * class_p, lv_obj_t * ob
         style_inited = true;
     }
     lv_obj_add_style(obj, &style_main, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_align(obj, LV_ALIGN_CENTER);
 
     lv_obj_t * lv_button_1 = lv_button_create(obj);
     lv_obj_add_style(lv_button_1, &style_button, LV_PART_MAIN | LV_STATE_DEFAULT);

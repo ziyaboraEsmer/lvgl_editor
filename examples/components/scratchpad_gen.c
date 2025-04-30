@@ -42,11 +42,10 @@ lv_obj_t * scratchpad_create(lv_obj_t * parent)
         lv_style_init(&style_slider_cont);
         lv_style_set_layout(&style_slider_cont, LV_LAYOUT_FLEX);
         lv_style_set_flex_flow(&style_slider_cont, LV_FLEX_FLOW_ROW);
-        lv_style_set_bg_opa(&style_slider_cont, 100);
-        lv_style_set_border_opa(&style_slider_cont, 100);
         lv_style_set_flex_cross_place(&style_slider_cont, LV_FLEX_ALIGN_CENTER);
         lv_style_set_flex_track_place(&style_slider_cont, LV_FLEX_ALIGN_CENTER);
-        lv_style_set_pad_column(&style_slider_cont, 20);
+        lv_style_set_border_opa(&style_slider_cont, 100);
+        lv_style_set_pad_column(&style_slider_cont, 5);
 
         style_inited = true;
     }
@@ -55,15 +54,14 @@ lv_obj_t * scratchpad_create(lv_obj_t * parent)
         lv_obj_set_style_border_width(lv_obj_1, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_bg_color(lv_obj_1, lv_color_hex(0xeeeeee), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_radius(lv_obj_1, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_flex_flow(lv_obj_1, LV_FLEX_FLOW_ROW);
+    lv_obj_set_flex_flow(lv_obj_1, LV_FLEX_FLOW_ROW_WRAP);
     lv_obj_set_width(lv_obj_1, lv_pct(100));
     lv_obj_set_height(lv_obj_1, lv_pct(100));
 
     lv_obj_t * lv_obj_2 = lv_obj_create(lv_obj_1);
-    lv_obj_set_flex_grow(lv_obj_2, 1);
     lv_obj_set_height(lv_obj_2, lv_pct(100));
+    lv_obj_set_flex_grow(lv_obj_2, 1);
     lv_obj_set_flex_flow(lv_obj_2, LV_FLEX_FLOW_COLUMN);
-    lv_obj_set_style_bg_color(lv_obj_2, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * lv_obj_3 = lv_obj_create(lv_obj_2);
     lv_obj_add_style(lv_obj_3, &style_slider_cont, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -99,31 +97,12 @@ lv_obj_t * scratchpad_create(lv_obj_t * parent)
     lv_obj_t * button_error_1 = button_error_create(lv_obj_2, "Delete");
     lv_obj_set_width(button_error_1, lv_pct(100));
 
-    lv_obj_t * button_warning_1 = button_warning_create(lv_obj_2, "Hello 2");
-    lv_obj_set_width(button_warning_1, lv_pct(100));
-
-    lv_obj_t * button_warning_2 = button_warning_create(lv_obj_2, "Hello 3");
-    lv_obj_set_width(button_warning_2, lv_pct(100));
-
-    lv_obj_t * button_default_2 = button_default_create(lv_obj_2, "Hello 4");
-    lv_obj_set_width(button_default_2, lv_pct(100));
-
-    lv_obj_add_event_cb(button_default_2, my_second_cb, LV_EVENT_CLICKED, NULL);
-    lv_obj_t * button_default_3 = button_default_create(lv_obj_2, "Hello 5");
-    lv_obj_set_width(button_default_3, lv_pct(100));
-
-    lv_obj_t * button_default_4 = button_default_create(lv_obj_2, "Hello 6");
-    lv_obj_set_width(button_default_4, lv_pct(100));
-
-    lv_obj_t * button_default_5 = button_default_create(lv_obj_2, "Hello 7");
-    lv_obj_set_width(button_default_5, lv_pct(100));
-
+    lv_obj_add_event_cb(button_error_1, delete_cb, LV_EVENT_CLICKED, NULL);
     lv_obj_t * lv_chart_1 = lv_chart_create(lv_obj_1);
-    lv_obj_set_flex_grow(lv_chart_1, 1);
     lv_obj_set_height(lv_chart_1, lv_pct(100));
+    lv_obj_set_flex_grow(lv_chart_1, 1);
     lv_chart_set_point_count(lv_chart_1, 6);
     lv_chart_set_div_line_count(lv_chart_1, 5, 0);
-    lv_obj_set_style_pad_column(lv_chart_1, 2, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_chart_set_axis_range(lv_chart_1, LV_CHART_AXIS_SECONDARY_Y, 0, 200);
 
@@ -132,7 +111,7 @@ lv_obj_t * scratchpad_create(lv_obj_t * parent)
     lv_chart_set_series_values(lv_chart_1, lv_chart_1_series_1, lv_chart_1_series_1_values, 9);
 
     lv_chart_cursor_t * lv_chart_1_cursor_1 = lv_chart_add_cursor(lv_chart_1, lv_color_hex(0xff0000), LV_DIR_HOR);
-    lv_chart_set_cursor_pos_y(lv_chart_1, lv_chart_1_cursor_1, 80);
+    lv_chart_set_cursor_pos_y(lv_chart_1, lv_chart_1_cursor_1, 100);
 
 
     LV_TRACE_OBJ_CREATE("finished");
