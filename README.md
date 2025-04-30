@@ -1,6 +1,6 @@
 # LVGL's UI Editor
 
-This repository contains public content related to the LVGL Editor. The current version is `v0.2.0-rc1`. v0.2 will be released in a few weeks. 
+This repository contains public content related to the LVGL Editor. The current version is `v0.2.0`. 
 
 ## Introduction
 
@@ -30,7 +30,7 @@ This video provides a step-by-step guide to all the supported features. A new vi
 ## Get Started
 
 1. **Install Docker**: Docker is required to compile your code and integrate it into the editor. Find the Docker installation guide [here](https://docs.docker.com/engine/install/). On Windows make sure that `Docker Desktop` is running. 
-2. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases/tag/v0.2.0-rc1).
+2. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases/tag/v0.2.0).
 3. **Fork and clone this repository** to experiment with its CI actions and online preview features. In the repository settings set the source of `Pages` to `GitHub Action`, and on the `Actions` page enable actions. 
 4. **Open the editor** and load the example folder.
 5. **Compile the project** to generate the custom C code in the editor’s preview (use the button in the top-right corner).  
