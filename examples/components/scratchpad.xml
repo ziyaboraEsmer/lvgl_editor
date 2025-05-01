@@ -26,7 +26,7 @@
             <!-- Use an image too -->
             <lv_image src="lvgl_logo" inner_align="stretch" width="150" height="60"/>
 
-            <!-- And te events -->
+            <!-- And the events -->
             <button_default  width="#long" button_label="Click me!">
                 <lv_event-call_function callback="my_first_cb" trigger="clicked" user_data="foo"/>
             </button_default>
