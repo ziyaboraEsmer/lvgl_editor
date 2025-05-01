@@ -33,7 +33,9 @@ This video provides a step-by-step guide to all the supported features. A new vi
 2. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases/tag/v0.2.0).
 3. **Fork and clone this repository** to experiment with its CI actions and online preview features. In the repository settings set the source of `Pages` to `GitHub Action`, and on the `Actions` page enable actions. 
 4. **Open the editor** and load the example folder.
-5. **Compile the project** to generate the custom C code in the editor’s preview (use the button in the top-right corner).  
+5. **Prepare the Project** Generate C code by clicking the ![image](https://github.com/user-attachments/assets/f2c720b6-19cf-4abd-a79b-ac31b2cc0fec)
+`Generate Code` button first and click ![image](https://github.com/user-attachments/assets/8cb7fb0b-bde3-4be7-af31-10131c5c9476)
+`Compile Project` button after that to recompile the Editor's preview with the new C code.  
 6. **Edit components**: Open `button_default.xml` and make edits. Save the file (Ctrl+S) to update the preview. Learn more about LVGL's XML language [here](https://docs.lvgl.io/master/details/other-components/xml.html).
 7. **Edit a widget**: Open `slider_box.xml` (a widget) and click "Compile Code." It will compile the C code alongside the widget's XML. Feel free to edit the C code and recompile it.
 8. **Check out Fonts and Images**: Open `globals.xml` to see how images and fonts are handled.
