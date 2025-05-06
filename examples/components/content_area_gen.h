@@ -1,9 +1,9 @@
 /**
- * @file header_gen.h
+ * @file content_area_gen.h
  */
 
-#ifndef HEADER_H
-#define HEADER_H
+#ifndef CONTENT_AREA_H
+#define CONTENT_AREA_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,7 +26,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * header_create(lv_obj_t * parent, const char * title);
+lv_obj_t * content_area_create(lv_obj_t * parent);
 
 /**********************
  *      MACROS
@@ -36,4 +36,4 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title);
 } /*extern "C"*/
 #endif
 
-#endif /*HEADER_H*/
+#endif /*CONTENT_AREA_H*/

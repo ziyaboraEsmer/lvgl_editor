@@ -20,10 +20,12 @@ extern "C" {
 #include "lvgl/lvgl.h"
 
 /*Include all the widget and components of this library*/
-#include "components/base_screen_gen.h"
+#include "components/content_area_gen.h"
 #include "components/header_gen.h"
+#include "components/icon_gen.h"
 #include "components/subtitle_gen.h"
 #include "components/title_gen.h"
+#include "screens/settings_gen.h"
 
 /*********************
  *      DEFINES
@@ -52,6 +54,11 @@ extern const void * img_bluetooth;
 extern const void * img_bell;
 
 extern lv_subject_t subject_clock;
+extern lv_subject_t subject_hours;
+extern lv_subject_t subject_mins;
+extern lv_subject_t subject_bluetooth_on;
+extern lv_subject_t subject_wifi_on;
+extern lv_subject_t subject_notification_on;
 
 /**********************
  * GLOBAL PROTOTYPES

@@ -1,0 +1,10 @@
+<component>
+    <styles>
+        <style name="main" pad_all="16" width="100%"
+        radius="0" border_width="0" flex_grow="1" flex_flow="column"
+        layout="flex"  />
+    </styles>
+    <view styles="main" >
+
+    </view>
+</component>

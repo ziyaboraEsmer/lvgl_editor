@@ -1,9 +1,9 @@
 /**
- * @file header_gen.h
+ * @file icon_gen.h
  */
 
-#ifndef HEADER_H
-#define HEADER_H
+#ifndef ICON_H
+#define ICON_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,7 +26,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * header_create(lv_obj_t * parent, const char * title);
+lv_obj_t * icon_create(lv_obj_t * parent);
 
 /**********************
  *      MACROS
@@ -36,4 +36,4 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title);
 } /*extern "C"*/
 #endif
 
-#endif /*HEADER_H*/
+#endif /*ICON_H*/

@@ -42,6 +42,11 @@ const void * img_bell;
 /*Subjects*/
 
 lv_subject_t subject_clock;
+lv_subject_t subject_hours;
+lv_subject_t subject_mins;
+lv_subject_t subject_bluetooth_on;
+lv_subject_t subject_wifi_on;
+lv_subject_t subject_notification_on;
 
 /**********************
  *      MACROS
@@ -63,6 +68,16 @@ void examples_init_gen(const char * asset_path)
                             UI_SUBJECT_STRING_LENGTH,
                             "12:34"
                           );
+
+    lv_subject_init_int(&subject_hours, 8);
+
+    lv_subject_init_int(&subject_mins, 24);
+
+    lv_subject_init_int(&subject_bluetooth_on, 1);
+
+    lv_subject_init_int(&subject_wifi_on, 1);
+
+    lv_subject_init_int(&subject_notification_on, 1);
 
     /* create tiny ttf font "font_title" from file */
     lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Inter-SemiBold.ttf");
@@ -88,6 +103,11 @@ void examples_init_gen(const char * asset_path)
         lv_xml_register_image(NULL, "img_bell", img_bell);
 
         lv_xml_register_subject(NULL, "clock", &subject_clock);
+        lv_xml_register_subject(NULL, "hours", &subject_hours);
+        lv_xml_register_subject(NULL, "mins", &subject_mins);
+        lv_xml_register_subject(NULL, "bluetooth_on", &subject_bluetooth_on);
+        lv_xml_register_subject(NULL, "wifi_on", &subject_wifi_on);
+        lv_xml_register_subject(NULL, "notification_on", &subject_notification_on);
 
     #endif
 }

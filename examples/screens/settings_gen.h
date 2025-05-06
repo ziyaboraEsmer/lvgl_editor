@@ -1,9 +1,9 @@
 /**
- * @file header_gen.h
+ * @file settings_gen.h
  */
 
-#ifndef HEADER_H
-#define HEADER_H
+#ifndef SETTINGS_H
+#define SETTINGS_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,7 +26,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * header_create(lv_obj_t * parent, const char * title);
+lv_obj_t * settings_create(void);
 
 /**********************
  *      MACROS
@@ -36,4 +36,4 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title);
 } /*extern "C"*/
 #endif
 
-#endif /*HEADER_H*/
+#endif /*SETTINGS_H*/
