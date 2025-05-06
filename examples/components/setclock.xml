@@ -1,0 +1,19 @@
+<component>
+    <previews>
+        <preview style_bg_color="0xbbbbbb"/>
+    </previews>
+
+    <view flex_flow="row" width="content" height="content" 
+                style_pad_all="0" 
+                style_bg_opa="0"
+                style_border_width="0">
+                <container flex_flow="column" >
+                    <subtitle text="Hour"></subtitle>
+                    <lv_roller bind_value="hours" options="'0&#xA;1&#xA;2&#xA;3&#xA;4' normal"></lv_roller>
+                </container>
+                <container flex_flow="column">
+                    <subtitle text="Mins"></subtitle>
+                    <lv_roller bind_value="mins" options="'0&#xA;1&#xA;2&#xA;3&#xA;4' normal"></lv_roller>
+                </container>
+    </view>
+</component>

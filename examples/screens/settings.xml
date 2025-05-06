@@ -3,29 +3,21 @@
         <preview width="320" height="240"/>
         <preview width="240" height="240"/>
     </previews>
+
     <styles>
         <style name="main"  pad_all="0" border_width="0" radius="0"
           layout="flex" flex_flow="column" pad_row="0"/>
     </styles>
+
     <view width="100%" height="100%" styles="main">
         <header title="Settings"/>
         <content_area style_bg_color="0xeeeeee" flex_grow="1" flex_flow="row_wrap">
             <container flex_flow="column" style_pad_row="12">
-                <lv_checkbox text="Notifications" bind_checked="notification_on"/>
-                <lv_checkbox text="Bluetooth" bind_checked="bluetooth_on"/>
-                <lv_checkbox text="WiFi" bind_checked="wifi_on"/>
+                <checkbox text="Notifications" bind_checked="notification_on"/>
+                <checkbox text="Bluetooth" bind_checked="bluetooth_on"/>
+                <checkbox text="WiFi" bind_checked="wifi_on"/>
             </container>
-
-            <container flex_flow="row">
-                <container flex_flow="column">
-                    <subtitle text="Hour"></subtitle>
-                    <lv_roller bind_value="hours" options="'1&#xA;2&#xA;3&#xA;4' normal"></lv_roller>
-                </container>
-                <container flex_flow="column">
-                    <subtitle text="Mins"></subtitle>
-                    <lv_roller bind_value="mins" options="'1&#xA;2&#xA;3&#xA;4' normal"></lv_roller>
-                </container>
-            </container>
+            <setclock ></setclock>
         </content_area>
     </view>
 </component>
