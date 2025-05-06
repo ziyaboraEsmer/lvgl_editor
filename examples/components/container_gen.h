@@ -1,9 +1,9 @@
 /**
- * @file base_screen_gen.h
+ * @file container_gen.h
  */
 
-#ifndef BASE_SCREEN_H
-#define BASE_SCREEN_H
+#ifndef CONTAINER_H
+#define CONTAINER_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,7 +26,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * base_screen_create(lv_obj_t * parent);
+lv_obj_t * container_create(lv_obj_t * parent);
 
 /**********************
  *      MACROS
@@ -36,4 +36,4 @@ lv_obj_t * base_screen_create(lv_obj_t * parent);
 } /*extern "C"*/
 #endif
 
-#endif /*BASE_SCREEN_H*/
+#endif /*CONTAINER_H*/

@@ -1,12 +1,12 @@
 /**
- * @file content_area_gen.c
+ * @file container_gen.c
  * @description Template source file for LVGL objects
  */
 
 /*********************
  *      INCLUDES
  *********************/
-#include "content_area_gen.h"
+#include "container_gen.h"
 #include "ui.h"
 
 /*********************
@@ -29,7 +29,7 @@
  *   GLOBAL FUNCTIONS
  **********************/
 
-lv_obj_t * content_area_create(lv_obj_t * parent)
+lv_obj_t * container_create(lv_obj_t * parent)
 {
     LV_TRACE_OBJ_CREATE("begin");
 
@@ -40,13 +40,13 @@ lv_obj_t * content_area_create(lv_obj_t * parent)
     if(!style_inited) {
         
         lv_style_init(&style_main);
-        lv_style_set_pad_all(&style_main, 16);
-        lv_style_set_width(&style_main, lv_pct(100));
-        lv_style_set_radius(&style_main, 0);
+        lv_style_set_bg_opa(&style_main, 0);
         lv_style_set_border_width(&style_main, 0);
-        lv_style_set_flex_grow(&style_main, 1);
-        lv_style_set_flex_flow(&style_main, LV_FLEX_FLOW_COLUMN);
-        lv_style_set_layout(&style_main, LV_LAYOUT_FLEX);
+        lv_style_set_pad_all(&style_main, 0);
+        lv_style_set_width(&style_main, LV_SIZE_CONTENT);
+        lv_style_set_height(&style_main, LV_SIZE_CONTENT);
+        lv_style_set_pad_row(&style_main, 0);
+        lv_style_set_pad_column(&style_main, 0);
 
         style_inited = true;
     }

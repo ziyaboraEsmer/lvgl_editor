@@ -6,12 +6,12 @@
     </images>
 
     <fonts>
-        <tiny_ttf name="font_title" as_file="true" size="20" src_path="fonts/Inter-SemiBold.ttf"/>
-        <tiny_ttf name="font_subtitle" as_file="true" size="16" src_path="fonts/Inter-SemiBold.ttf"/>
+        <tiny_ttf name="font_title" size="20" src_path="fonts/Inter-SemiBold.ttf"/>
+        <tiny_ttf name="font_subtitle" size="14" src_path="fonts/Inter-SemiBold.ttf"/>
     </fonts>
     <subjects>
-        <int name="hours" value="8"/>
-        <int name="mins" value="24"/>
+        <int name="hours" value="1"/>
+        <int name="mins" value="2"/>
         <int name="bluetooth_on" value="1"/>
         <int name="wifi_on" value="1"/>
         <int name="notification_on" value="1"/>

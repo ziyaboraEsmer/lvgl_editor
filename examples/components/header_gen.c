@@ -47,6 +47,7 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
         lv_style_set_radius(&style_main, 0);
         lv_style_set_width(&style_main, lv_pct(100));
         lv_style_set_height(&style_main, 32);
+        lv_style_set_pad_hor(&style_main, 8);
         lv_style_set_layout(&style_main, LV_LAYOUT_FLEX);
         lv_style_set_flex_cross_place(&style_main, LV_FLEX_ALIGN_CENTER);
         lv_style_set_flex_track_place(&style_main, LV_FLEX_ALIGN_CENTER);
@@ -60,15 +61,9 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
         lv_obj_add_style(lv_obj_1, &style_main, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_flag(lv_obj_1, LV_OBJ_FLAG_SCROLLABLE, false);
 
-    lv_obj_t * lv_obj_2 = lv_obj_create(lv_obj_1);
-
-    subtitle_create(lv_obj_2, "Subtitle");
-    
-    lv_label_bind_text(subtitle_1, &subject_hours, "%d");
-
-    lv_obj_t * subtitle_2 = subtitle_create(lv_obj_1, title);
-    lv_label_set_text(subtitle_2, title);
-    lv_obj_set_flex_grow(subtitle_2, 1);
+    lv_obj_t * subtitle_1 = subtitle_create(lv_obj_1, title);
+    lv_label_set_text(subtitle_1, title);
+    lv_obj_set_flex_grow(subtitle_1, 1);
 
     lv_obj_t * icon_1 = icon_create(lv_obj_1);
     lv_image_set_src(icon_1, img_bell);
@@ -82,11 +77,22 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
     lv_image_set_src(icon_3, img_wifi);
     lv_obj_set_bind_state_if_eq(icon_3, &subject_wifi_on, LV_STATE_DISABLED, 0);
 
-    lv_obj_t * subtitle_3 = subtitle_create(lv_obj_1, "Subtitle");
+    lv_obj_t * container_1 = container_create(lv_obj_1);
+    lv_obj_set_flex_flow(container_1, LV_FLEX_FLOW_ROW);
+    lv_obj_set_style_flex_main_place(container_1, LV_FLEX_ALIGN_END, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(container_1, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_width(container_1, 41);
+
+    subtitle_create(container_1, "Subtitle");
     
-    lv_label_bind_text(subtitle_3, &subject_clock, NULL);
-    lv_obj_set_width(subtitle_3, 48);
-    lv_obj_set_style_text_align(subtitle_3, LV_TEXT_ALIGN_RIGHT, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_label_bind_text(subtitle_2, &subject_hours, NULL);
+
+    subtitle_create(container_1, ":");
+    lv_label_set_text(subtitle_3, ":");
+
+    subtitle_create(container_1, "Subtitle");
+    
+    lv_label_bind_text(subtitle_4, &subject_mins, NULL);
 
 
     LV_TRACE_OBJ_CREATE("finished");

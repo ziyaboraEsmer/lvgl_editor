@@ -32,6 +32,8 @@
 
 /*Fonts*/
 lv_font_t * font_title;
+extern uint8_t Inter_SemiBold_ttf_data[];
+extern size_t Inter_SemiBold_ttf_data_size;
 lv_font_t * font_subtitle;
 
 /*Images*/
@@ -41,7 +43,6 @@ const void * img_bell;
 
 /*Subjects*/
 
-lv_subject_t subject_clock;
 lv_subject_t subject_hours;
 lv_subject_t subject_mins;
 lv_subject_t subject_bluetooth_on;
@@ -60,18 +61,9 @@ void examples_init_gen(const char * asset_path)
 {
     char buf[256];
 
-    static char subject_clock_buf[UI_SUBJECT_STRING_LENGTH];
-    static char subject_clock_prev_buf[UI_SUBJECT_STRING_LENGTH];
-    lv_subject_init_string(&subject_clock,
-                            subject_clock_buf,
-                            subject_clock_prev_buf,
-                            UI_SUBJECT_STRING_LENGTH,
-                            "12:34"
-                          );
+    lv_subject_init_int(&subject_hours, 1);
 
-    lv_subject_init_int(&subject_hours, 8);
-
-    lv_subject_init_int(&subject_mins, 24);
+    lv_subject_init_int(&subject_mins, 2);
 
     lv_subject_init_int(&subject_bluetooth_on, 1);
 
@@ -79,12 +71,10 @@ void examples_init_gen(const char * asset_path)
 
     lv_subject_init_int(&subject_notification_on, 1);
 
-    /* create tiny ttf font "font_title" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Inter-SemiBold.ttf");
-    font_title = lv_tiny_ttf_create_file(buf, 20);
-    /* create tiny ttf font "font_subtitle" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Inter-SemiBold.ttf");
-    font_subtitle = lv_tiny_ttf_create_file(buf, 16);
+    /* create tiny ttf font 'font_title' from C array */
+    font_title = lv_tiny_ttf_create_data(Inter_SemiBold_ttf_data, Inter_SemiBold_ttf_data_size, 20);
+    /* create tiny ttf font 'font_subtitle' from C array */
+    font_subtitle = lv_tiny_ttf_create_data(Inter_SemiBold_ttf_data, Inter_SemiBold_ttf_data_size, 14);
 
     lv_snprintf(buf, 256, "%s%s", asset_path, "images/wifi-solid.png");
     img_wifi = lv_strdup(buf);
@@ -102,7 +92,6 @@ void examples_init_gen(const char * asset_path)
         lv_xml_register_image(NULL, "img_bluetooth", img_bluetooth);
         lv_xml_register_image(NULL, "img_bell", img_bell);
 
-        lv_xml_register_subject(NULL, "clock", &subject_clock);
         lv_xml_register_subject(NULL, "hours", &subject_hours);
         lv_xml_register_subject(NULL, "mins", &subject_mins);
         lv_xml_register_subject(NULL, "bluetooth_on", &subject_bluetooth_on);
