@@ -1,15 +1,27 @@
 <globals>
+    <api>
+        <!-- Add <enumdefs> here -->
+    </api>
+
+    <consts>
+        <!-- Add <px>, <int>, <color> etc here -->
+    </consts>
+
+    <styles>
+        <!-- Add <style> tags here -->
+    </styles>
+
     <images>
-        <data name="lvgl_logo" src_path="images/lvgl.png" file_format="png" color_format="rgb565"/>
-        <file name="wink" src_path="images/wink.png" file_format="png"/>
+        <data name="img_wifi" src_path="images/wifi-solid.png"></data>
+        <data name="img_bluetooth" src_path="images/bluetooth-brands.png"></data>
+        <data name="img_bell" src_path="images/bell-solid.png"></data>
     </images>
-     <fonts>
-        <bin name="inter_sm" src_path="fonts/Inter-SemiBold.ttf" size="14" bpp="8"
-        />
-        <tiny_ttf name="inter_md" src_path="fonts/Inter-SemiBold.ttf" size="18" as_file="true"/>
-        <tiny_ttf name="inter_xl" src_path="fonts/Inter-SemiBold.ttf" size="22" as_file="true"/>
+
+    <fonts>
+        <tiny_ttf name="font_title" as_file="true" size="20" src_path="fonts/Inter-SemiBold.ttf"/>
+        <tiny_ttf name="font_subtitle" as_file="true" size="16" src_path="fonts/Inter-SemiBold.ttf"/>
     </fonts>
     <subjects>
-        <int name="room_1_temp" value="20"/>
+        <string name="clock" value="12:34"/>
     </subjects>
 </globals>

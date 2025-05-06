@@ -20,18 +20,10 @@ extern "C" {
 #include "lvgl/lvgl.h"
 
 /*Include all the widget and components of this library*/
-#include "widgets/dark_slider/dark_slider_gen.h"
-#include "widgets/slider_box/slider_box_gen.h"
-#include "widgets/dark_slider/dark_slider_gen.h"
-#include "widgets/slider_box/slider_box_gen.h"
-#include "components/buttons/button_default_gen.h"
-#include "components/buttons/button_error_gen.h"
-#include "components/buttons/button_warning_gen.h"
-#include "components/headings/h1_gen.h"
-#include "components/headings/h2_gen.h"
-#include "components/headings/h3_gen.h"
-#include "components/scratchpad_gen.h"
-#include "screens/home_gen.h"
+#include "components/base_screen_gen.h"
+#include "components/header_gen.h"
+#include "components/subtitle_gen.h"
+#include "components/title_gen.h"
 
 /*********************
  *      DEFINES
@@ -49,19 +41,17 @@ extern "C" {
  **********************/
 
 /* callbacks */
-void my_first_cb(lv_event_t * e);
-void delete_cb(lv_event_t * e);
 
 /*Fonts*/
-extern lv_font_t * inter_sm;
-extern lv_font_t * inter_md;
-extern lv_font_t * inter_xl;
+extern lv_font_t * font_title;
+extern lv_font_t * font_subtitle;
 
 /*Images*/
-extern const void * lvgl_logo;
-extern const void * wink;
+extern const void * img_wifi;
+extern const void * img_bluetooth;
+extern const void * img_bell;
 
-extern lv_subject_t subject_room_1_temp;
+extern lv_subject_t subject_clock;
 
 /**********************
  * GLOBAL PROTOTYPES
