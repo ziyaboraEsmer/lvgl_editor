@@ -8,8 +8,6 @@
 #include "examples_gen.h"
 
 #if LV_USE_XML
-   #include "widgets/dark_slider/dark_slider_private_gen.h"
-   #include "widgets/slider_box/slider_box_private_gen.h"
 #endif
 
 /*********************
@@ -33,18 +31,23 @@
  **********************/
 
 /*Fonts*/
-lv_font_t * inter_sm;
-extern lv_font_t inter_sm_data;
-lv_font_t * inter_md;
-lv_font_t * inter_xl;
+lv_font_t * font_title;
+extern uint8_t Inter_SemiBold_ttf_data[];
+extern size_t Inter_SemiBold_ttf_data_size;
+lv_font_t * font_subtitle;
 
 /*Images*/
-const void * lvgl_logo;
-const void * wink;
+const void * img_wifi;
+const void * img_bluetooth;
+const void * img_bell;
 
 /*Subjects*/
 
-lv_subject_t subject_room_1_temp;
+lv_subject_t subject_hours;
+lv_subject_t subject_mins;
+lv_subject_t subject_bluetooth_on;
+lv_subject_t subject_wifi_on;
+lv_subject_t subject_notification_on;
 
 /**********************
  *      MACROS
@@ -58,53 +61,47 @@ void examples_init_gen(const char * asset_path)
 {
     char buf[256];
 
-    lv_subject_init_int(&subject_room_1_temp, 20);
+    lv_subject_init_int(&subject_hours, 17);
 
-    /* get font 'inter_sm' from a C array */
-    inter_sm = &inter_sm_data;
-    /* create tiny ttf font "inter_md" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Inter-SemiBold.ttf");
-    inter_md = lv_tiny_ttf_create_file(buf, 18);
-    /* create tiny ttf font "inter_xl" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Inter-SemiBold.ttf");
-    inter_xl = lv_tiny_ttf_create_file(buf, 22);
+    lv_subject_init_int(&subject_mins, 45);
 
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/lvgl.png");
-    lvgl_logo = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/wink.png");
-    wink = lv_strdup(buf);
+    lv_subject_init_int(&subject_bluetooth_on, 0);
+
+    lv_subject_init_int(&subject_wifi_on, 0);
+
+    lv_subject_init_int(&subject_notification_on, 0);
+
+    /* create tiny ttf font 'font_title' from C array */
+    font_title = lv_tiny_ttf_create_data(Inter_SemiBold_ttf_data, Inter_SemiBold_ttf_data_size, 20);
+    /* create tiny ttf font 'font_subtitle' from C array */
+    font_subtitle = lv_tiny_ttf_create_data(Inter_SemiBold_ttf_data, Inter_SemiBold_ttf_data_size, 14);
+
+    lv_snprintf(buf, 256, "%s%s", asset_path, "images/wifi-solid.png");
+    img_wifi = lv_strdup(buf);
+    lv_snprintf(buf, 256, "%s%s", asset_path, "images/bluetooth-brands.png");
+    img_bluetooth = lv_strdup(buf);
+    lv_snprintf(buf, 256, "%s%s", asset_path, "images/bell-solid.png");
+    img_bell = lv_strdup(buf);
 
     #if LV_USE_XML
-        dark_slider_register();
-        slider_box_register();
 
-        lv_xml_register_font(NULL, "inter_sm", inter_sm);
-        lv_xml_register_font(NULL, "inter_md", inter_md);
-        lv_xml_register_font(NULL, "inter_xl", inter_xl);
+        lv_xml_register_font(NULL, "font_title", font_title);
+        lv_xml_register_font(NULL, "font_subtitle", font_subtitle);
 
-        lv_xml_register_image(NULL, "lvgl_logo", lvgl_logo);
-        lv_xml_register_image(NULL, "wink", wink);
+        lv_xml_register_image(NULL, "img_wifi", img_wifi);
+        lv_xml_register_image(NULL, "img_bluetooth", img_bluetooth);
+        lv_xml_register_image(NULL, "img_bell", img_bell);
 
-        lv_xml_register_subject(NULL, "room_1_temp", &subject_room_1_temp);
+        lv_xml_register_subject(NULL, "hours", &subject_hours);
+        lv_xml_register_subject(NULL, "mins", &subject_mins);
+        lv_xml_register_subject(NULL, "bluetooth_on", &subject_bluetooth_on);
+        lv_xml_register_subject(NULL, "wifi_on", &subject_wifi_on);
+        lv_xml_register_subject(NULL, "notification_on", &subject_notification_on);
 
-        lv_xml_register_event_cb(NULL, "my_first_cb", my_first_cb);
-        lv_xml_register_event_cb(NULL, "delete_cb", delete_cb);
     #endif
 }
 
 /* callbacks */
-#if defined(LV_EDITOR_PREVIEW)
-void __attribute__((weak)) my_first_cb(lv_event_t * e)
-{
-   LV_UNUSED(e);
-   LV_LOG("my_first_cb was called\n");
-}
-void __attribute__((weak)) delete_cb(lv_event_t * e)
-{
-   LV_UNUSED(e);
-   LV_LOG("delete_cb was called\n");
-}
-#endif
 
 /**********************
  *   STATIC FUNCTIONS

@@ -1,15 +1,19 @@
 <globals>
     <images>
-        <data name="lvgl_logo" src_path="images/lvgl.png" file_format="png" color_format="rgb565"/>
-        <file name="wink" src_path="images/wink.png" file_format="png"/>
+        <data name="img_wifi" src_path="images/wifi-solid.png"/>
+        <data name="img_bluetooth" src_path="images/bluetooth-brands.png"/>
+        <data name="img_bell" src_path="images/bell-solid.png"/>
     </images>
-     <fonts>
-        <bin name="inter_sm" src_path="fonts/Inter-SemiBold.ttf" size="14" bpp="8"
-        />
-        <tiny_ttf name="inter_md" src_path="fonts/Inter-SemiBold.ttf" size="18" as_file="true"/>
-        <tiny_ttf name="inter_xl" src_path="fonts/Inter-SemiBold.ttf" size="22" as_file="true"/>
+
+    <fonts>
+        <tiny_ttf name="font_title" size="20" src_path="fonts/Inter-SemiBold.ttf"/>
+        <tiny_ttf name="font_subtitle" size="14" src_path="fonts/Inter-SemiBold.ttf"/>
     </fonts>
     <subjects>
-        <int name="room_1_temp" value="20"/>
+        <int name="hours" value="17"/>
+        <int name="mins" value="45"/>
+        <int name="bluetooth_on" value="0"/>
+        <int name="wifi_on" value="0"/>
+        <int name="notification_on" value="0"/>
     </subjects>
 </globals>

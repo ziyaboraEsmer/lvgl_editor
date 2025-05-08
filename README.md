@@ -1,6 +1,7 @@
 # LVGL's UI Editor
 
-This repository contains public content related to the LVGL Editor. The current version is `v0.2.0`. 
+This repository contains public content related to the LVGL Editor. 
+
 
 ## Introduction
 
