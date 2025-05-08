@@ -47,6 +47,7 @@ lv_obj_t * row_create(lv_obj_t * parent)
         lv_style_set_height(&style_main, LV_SIZE_CONTENT);
         lv_style_set_layout(&style_main, LV_LAYOUT_FLEX);
         lv_style_set_flex_flow(&style_main, LV_FLEX_FLOW_ROW);
+        lv_style_set_radius(&style_main, 0);
 
         style_inited = true;
     }

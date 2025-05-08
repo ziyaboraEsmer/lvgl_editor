@@ -5,6 +5,7 @@
             width="content" height="content"
             layout="flex"
             flex_flow="row"
+            radius="0"
             />
     </styles>
     <view styles="main"/>

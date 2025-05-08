@@ -33,15 +33,11 @@ lv_obj_t * setclock_create(lv_obj_t * parent)
 {
     LV_TRACE_OBJ_CREATE("begin");
 
-    static lv_style_t style_style_column;
 
     static bool style_inited = false;
 
     if(!style_inited) {
         
-        lv_style_init(&style_style_column);
-        lv_style_set_flex_cross_place(&style_style_column, LV_FLEX_ALIGN_CENTER);
-
         style_inited = true;
     }
 
@@ -54,7 +50,7 @@ lv_obj_t * setclock_create(lv_obj_t * parent)
     lv_obj_set_style_border_width(lv_obj_1, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     lv_obj_t * column_1 = column_create(lv_obj_1);
-    lv_obj_add_style(column_1, &style_style_column, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_flex_cross_place(column_1, LV_FLEX_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     subtitle_create(column_1, "Hour");
 
@@ -64,7 +60,7 @@ lv_obj_t * setclock_create(lv_obj_t * parent)
     lv_roller_bind_value(lv_roller_1, &subject_hours);
 
     lv_obj_t * column_2 = column_create(lv_obj_1);
-    lv_obj_add_style(column_2, &style_style_column, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_flex_cross_place(column_2, LV_FLEX_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     subtitle_create(column_2, "Mins");
 
