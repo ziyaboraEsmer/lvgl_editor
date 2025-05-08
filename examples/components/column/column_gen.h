@@ -1,9 +1,9 @@
 /**
- * @file content_area_gen.h
+ * @file column_gen.h
  */
 
-#ifndef CONTENT_AREA_H
-#define CONTENT_AREA_H
+#ifndef COLUMN_H
+#define COLUMN_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,7 +26,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * content_area_create(lv_obj_t * parent);
+lv_obj_t * column_create(lv_obj_t * parent);
 
 /**********************
  *      MACROS
@@ -36,4 +36,4 @@ lv_obj_t * content_area_create(lv_obj_t * parent);
 } /*extern "C"*/
 #endif
 
-#endif /*CONTENT_AREA_H*/
+#endif /*COLUMN_H*/

@@ -1,9 +1,9 @@
 /**
- * @file container_gen.h
+ * @file row_gen.h
  */
 
-#ifndef CONTAINER_H
-#define CONTAINER_H
+#ifndef ROW_H
+#define ROW_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -26,7 +26,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * container_create(lv_obj_t * parent);
+lv_obj_t * row_create(lv_obj_t * parent);
 
 /**********************
  *      MACROS
@@ -36,4 +36,4 @@ lv_obj_t * container_create(lv_obj_t * parent);
 } /*extern "C"*/
 #endif
 
-#endif /*CONTAINER_H*/
+#endif /*ROW_H*/

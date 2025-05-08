@@ -20,15 +20,15 @@ extern "C" {
 #include "lvgl/lvgl.h"
 
 /*Include all the widget and components of this library*/
-#include "components/checkbox_gen.h"
-#include "components/container_gen.h"
-#include "components/content_area_gen.h"
-#include "components/header_gen.h"
-#include "components/icon_gen.h"
-#include "components/setclock_gen.h"
-#include "components/subtitle_gen.h"
-#include "components/title_gen.h"
-#include "screens/settings_gen.h"
+#include "components/checkbox/checkbox_gen.h"
+#include "components/column/column_gen.h"
+#include "components/header/header_gen.h"
+#include "components/icon/icon_gen.h"
+#include "components/row/row_gen.h"
+#include "components/setclock/setclock_gen.h"
+#include "components/subtitle/subtitle_gen.h"
+#include "components/title/title_gen.h"
+#include "screens/settings/settings_gen.h"
 
 /*********************
  *      DEFINES

@@ -21,10 +21,10 @@
         <icon src="img_bell"  bind_state_if_eq="notification_on disabled 0"/>
         <icon src="img_bluetooth" bind_state_if_eq="bluetooth_on disabled 0"/>
         <icon src="img_wifi" bind_state_if_eq="wifi_on disabled 0"/>
-        <container flex_flow="row" style_flex_main_place="end" style_text_color="0xffffff" width="41">
+        <row  width="40" style_flex_main_place="end" style_text_color="0xffffff" style_pad_column="0" >
             <subtitle bind_text="hours"></subtitle>
             <subtitle text=":"></subtitle>
             <subtitle bind_text="mins"></subtitle>
-        </container>
+        </row>
     </view>
 </component>

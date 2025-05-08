@@ -61,15 +61,15 @@ void examples_init_gen(const char * asset_path)
 {
     char buf[256];
 
-    lv_subject_init_int(&subject_hours, 1);
+    lv_subject_init_int(&subject_hours, 17);
 
-    lv_subject_init_int(&subject_mins, 2);
+    lv_subject_init_int(&subject_mins, 45);
 
-    lv_subject_init_int(&subject_bluetooth_on, 1);
+    lv_subject_init_int(&subject_bluetooth_on, 0);
 
-    lv_subject_init_int(&subject_wifi_on, 1);
+    lv_subject_init_int(&subject_wifi_on, 0);
 
-    lv_subject_init_int(&subject_notification_on, 1);
+    lv_subject_init_int(&subject_notification_on, 0);
 
     /* create tiny ttf font 'font_title' from C array */
     font_title = lv_tiny_ttf_create_data(Inter_SemiBold_ttf_data, Inter_SemiBold_ttf_data_size, 20);

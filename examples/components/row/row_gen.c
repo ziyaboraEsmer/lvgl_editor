@@ -1,12 +1,12 @@
 /**
- * @file checkbox_gen.c
+ * @file row_gen.c
  * @description Template source file for LVGL objects
  */
 
 /*********************
  *      INCLUDES
  *********************/
-#include "checkbox_gen.h"
+#include "row_gen.h"
 #include "ui.h"
 
 /*********************
@@ -29,31 +29,35 @@
  *   GLOBAL FUNCTIONS
  **********************/
 
-lv_obj_t * checkbox_create(lv_obj_t * parent, const char * text)
+lv_obj_t * row_create(lv_obj_t * parent)
 {
     LV_TRACE_OBJ_CREATE("begin");
 
-    static lv_style_t style_box;
+    static lv_style_t style_main;
 
     static bool style_inited = false;
 
     if(!style_inited) {
         
-        lv_style_init(&style_box);
-        lv_style_set_transform_height(&style_box, 0);
-        lv_style_set_transform_width(&style_box, 0);
+        lv_style_init(&style_main);
+        lv_style_set_bg_opa(&style_main, 0);
+        lv_style_set_border_width(&style_main, 0);
+        lv_style_set_pad_all(&style_main, 0);
+        lv_style_set_width(&style_main, LV_SIZE_CONTENT);
+        lv_style_set_height(&style_main, LV_SIZE_CONTENT);
+        lv_style_set_layout(&style_main, LV_LAYOUT_FLEX);
+        lv_style_set_flex_flow(&style_main, LV_FLEX_FLOW_ROW);
 
         style_inited = true;
     }
 
-    lv_obj_t * lv_checkbox_1 = lv_checkbox_create(parent);
-        lv_obj_add_style(lv_checkbox_1, &style_box, LV_PART_INDICATOR | LV_STATE_PRESSED);
-    lv_checkbox_set_text(lv_checkbox_1, text);
+    lv_obj_t * lv_obj_1 = lv_obj_create(parent);
+        lv_obj_add_style(lv_obj_1, &style_main, LV_PART_MAIN | LV_STATE_DEFAULT);
 
 
     LV_TRACE_OBJ_CREATE("finished");
 
-    return lv_checkbox_1;
+    return lv_obj_1;
 }
 
 /**********************

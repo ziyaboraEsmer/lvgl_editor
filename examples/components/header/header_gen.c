@@ -73,17 +73,17 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
     lv_obj_t * icon_3 = icon_create(lv_obj_1);
     lv_obj_bind_state_if_eq(icon_3, &subject_wifi_on, LV_STATE_DISABLED, 0);
 
-    lv_obj_t * container_1 = container_create(lv_obj_1);
-    lv_obj_set_flex_flow(container_1, LV_FLEX_FLOW_ROW);
-    lv_obj_set_style_flex_main_place(container_1, LV_FLEX_ALIGN_END, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(container_1, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_width(container_1, 41);
+    lv_obj_t * row_1 = row_create(lv_obj_1);
+    lv_obj_set_width(row_1, 40);
+    lv_obj_set_style_flex_main_place(row_1, LV_FLEX_ALIGN_END, LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(row_1, lv_color_hex(0xffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_column(row_1, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    subtitle_create(container_1, "Subtitle");
+    subtitle_create(row_1, "Subtitle");
 
-    subtitle_create(container_1, ":");
+    subtitle_create(row_1, ":");
 
-    subtitle_create(container_1, "Subtitle");
+    subtitle_create(row_1, "Subtitle");
 
 
     LV_TRACE_OBJ_CREATE("finished");
