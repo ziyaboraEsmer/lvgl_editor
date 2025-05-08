@@ -53,7 +53,6 @@ lv_obj_t * setclock_create(lv_obj_t * parent)
     lv_obj_set_flex_flow(container_1, LV_FLEX_FLOW_COLUMN);
 
     subtitle_create(container_1, "Hour");
-    lv_label_set_text(subtitle_1, "Hour");
 
     lv_obj_t * lv_roller_1 = lv_roller_create(container_1);
     lv_roller_set_options(lv_roller_1, "0&#xA;1&#xA;2&#xA;3&#xA;4", LV_ROLLER_MODE_NORMAL);
@@ -64,7 +63,6 @@ lv_obj_t * setclock_create(lv_obj_t * parent)
     lv_obj_set_flex_flow(container_2, LV_FLEX_FLOW_COLUMN);
 
     subtitle_create(container_2, "Mins");
-    lv_label_set_text(subtitle_2, "Mins");
 
     lv_obj_t * lv_roller_2 = lv_roller_create(container_2);
     lv_roller_set_options(lv_roller_2, "0&#xA;1&#xA;2&#xA;3&#xA;4", LV_ROLLER_MODE_NORMAL);

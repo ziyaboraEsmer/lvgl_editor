@@ -67,18 +67,15 @@ lv_obj_t * settings_create(void)
     lv_obj_set_flex_flow(container_1, LV_FLEX_FLOW_COLUMN);
     lv_obj_set_style_pad_row(container_1, 12, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-    lv_obj_t * checkbox_1 = checkbox_create(container_1);
-    lv_checkbox_set_text(checkbox_1, "Notifications");
+    lv_obj_t * checkbox_1 = checkbox_create(container_1, "Notifications");
     
     lv_obj_bind_checked(checkbox_1, &subject_notification_on);
 
-    lv_obj_t * checkbox_2 = checkbox_create(container_1);
-    lv_checkbox_set_text(checkbox_2, "Bluetooth");
+    lv_obj_t * checkbox_2 = checkbox_create(container_1, "Bluetooth");
     
     lv_obj_bind_checked(checkbox_2, &subject_bluetooth_on);
 
-    lv_obj_t * checkbox_3 = checkbox_create(container_1);
-    lv_checkbox_set_text(checkbox_3, "WiFi");
+    lv_obj_t * checkbox_3 = checkbox_create(container_1, "WiFi");
     
     lv_obj_bind_checked(checkbox_3, &subject_wifi_on);
 

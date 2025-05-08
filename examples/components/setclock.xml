@@ -7,8 +7,8 @@
         <string name="hours_string" value="'0&#xA;1&#xA;2&#xA;3&#xA;4' normal"/>
     </consts>
 
-    <view flex_flow="row" width="content" height="content" 
-                style_pad_all="0" 
+    <view flex_flow="row" width="content" height="content"
+                style_pad_all="0"
                 style_bg_opa="0"
                 style_border_width="0">
                 <container flex_flow="column" >

@@ -62,20 +62,16 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
     lv_obj_set_flag(lv_obj_1, LV_OBJ_FLAG_SCROLLABLE, false);
 
     lv_obj_t * subtitle_1 = subtitle_create(lv_obj_1, title);
-    lv_label_set_text(subtitle_1, title);
     lv_obj_set_flex_grow(subtitle_1, 1);
 
     lv_obj_t * icon_1 = icon_create(lv_obj_1);
-    lv_image_set_src(icon_1, img_bell);
-    lv_obj_set_bind_state_if_eq(icon_1, &subject_notification_on, LV_STATE_DISABLED, 0);
+    lv_obj_bind_state_if_eq(icon_1, &subject_notification_on, LV_STATE_DISABLED, 0);
 
     lv_obj_t * icon_2 = icon_create(lv_obj_1);
-    lv_image_set_src(icon_2, img_bluetooth);
-    lv_obj_set_bind_state_if_eq(icon_2, &subject_bluetooth_on, LV_STATE_DISABLED, 0);
+    lv_obj_bind_state_if_eq(icon_2, &subject_bluetooth_on, LV_STATE_DISABLED, 0);
 
     lv_obj_t * icon_3 = icon_create(lv_obj_1);
-    lv_image_set_src(icon_3, img_wifi);
-    lv_obj_set_bind_state_if_eq(icon_3, &subject_wifi_on, LV_STATE_DISABLED, 0);
+    lv_obj_bind_state_if_eq(icon_3, &subject_wifi_on, LV_STATE_DISABLED, 0);
 
     lv_obj_t * container_1 = container_create(lv_obj_1);
     lv_obj_set_flex_flow(container_1, LV_FLEX_FLOW_ROW);
@@ -84,15 +80,10 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
     lv_obj_set_width(container_1, 41);
 
     subtitle_create(container_1, "Subtitle");
-    
-    lv_label_bind_text(subtitle_2, &subject_hours, NULL);
 
     subtitle_create(container_1, ":");
-    lv_label_set_text(subtitle_3, ":");
 
     subtitle_create(container_1, "Subtitle");
-    
-    lv_label_bind_text(subtitle_4, &subject_mins, NULL);
 
 
     LV_TRACE_OBJ_CREATE("finished");

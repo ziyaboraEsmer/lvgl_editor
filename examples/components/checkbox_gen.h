@@ -26,7 +26,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-lv_obj_t * checkbox_create(lv_obj_t * parent);
+lv_obj_t * checkbox_create(lv_obj_t * parent, const char * text);
 
 /**********************
  *      MACROS
