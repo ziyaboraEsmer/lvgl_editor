@@ -31,7 +31,7 @@ This video provides a step-by-step guide to all the supported features. A new vi
 ## Get Started
 
 1. **Install Docker**: Docker is required to compile your code and integrate it into the editor. Find the Docker installation guide [here](https://docs.docker.com/engine/install/). On Windows make sure that `Docker Desktop` is running. 
-2. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases/tag/v0.2.0).
+2. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases).
 3. **Fork and clone this repository** to experiment with its CI actions and online preview features. In the repository settings set the source of `Pages` to `GitHub Action`, and on the `Actions` page enable actions. 
 4. **Open the editor** and load the example folder.
 5. **Prepare the Project** Generate C code by clicking the ![image](https://github.com/user-attachments/assets/f2c720b6-19cf-4abd-a79b-ac31b2cc0fec)
