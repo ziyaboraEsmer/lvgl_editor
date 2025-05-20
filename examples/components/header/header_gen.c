@@ -37,7 +37,7 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
 
     static bool style_inited = false;
 
-    if(!style_inited) {
+    if (!style_inited) {
         
         lv_style_init(&style_main);
         lv_style_set_bg_color(&style_main, lv_color_hex(0x2d2d2d));

@@ -37,7 +37,7 @@ lv_obj_t * checkbox_create(lv_obj_t * parent, const char * text, lv_subject_t * 
 
     static bool style_inited = false;
 
-    if(!style_inited) {
+    if (!style_inited) {
         
         lv_style_init(&style_box);
         lv_style_set_transform_height(&style_box, 0);

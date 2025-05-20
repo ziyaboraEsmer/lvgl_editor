@@ -38,16 +38,16 @@ lv_obj_t * icon_create(lv_obj_t * parent)
 
     static bool style_inited = false;
 
-    if(!style_inited) {
+    if (!style_inited) {
         
         lv_style_init(&style_main);
         lv_style_set_width(&style_main, 14);
         lv_style_set_height(&style_main, 14);
         lv_style_set_image_recolor(&style_main, lv_color_hex(0xffffff));
-        lv_style_set_image_recolor_opa(&style_main, 100);
+        lv_style_set_image_recolor_opa(&style_main, 255);
 
         lv_style_init(&style_off);
-        lv_style_set_image_opa(&style_off, 50);
+        lv_style_set_image_opa(&style_off, 128);
 
         style_inited = true;
     }

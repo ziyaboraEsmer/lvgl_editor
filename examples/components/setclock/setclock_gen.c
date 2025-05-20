@@ -34,13 +34,6 @@ lv_obj_t * setclock_create(lv_obj_t * parent)
     LV_TRACE_OBJ_CREATE("begin");
 
 
-    static bool style_inited = false;
-
-    if(!style_inited) {
-        
-        style_inited = true;
-    }
-
     lv_obj_t * lv_obj_1 = lv_obj_create(parent);
         lv_obj_set_flex_flow(lv_obj_1, LV_FLEX_FLOW_ROW);
     lv_obj_set_width(lv_obj_1, LV_SIZE_CONTENT);

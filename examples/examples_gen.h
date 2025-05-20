@@ -45,17 +45,18 @@ extern "C" {
  * GLOBAL VARIABLES
  **********************/
 
-/* callbacks */
+/* Global Styles */
 
-/*Fonts*/
+/* Fonts */
 extern lv_font_t * font_title;
 extern lv_font_t * font_subtitle;
 
-/*Images*/
+/* Images */
 extern const void * img_wifi;
 extern const void * img_bluetooth;
 extern const void * img_bell;
 
+/* Subjects */
 extern lv_subject_t subject_hours;
 extern lv_subject_t subject_mins;
 extern lv_subject_t subject_bluetooth_on;
@@ -65,6 +66,8 @@ extern lv_subject_t subject_notification_on;
 /**********************
  * GLOBAL PROTOTYPES
  **********************/
+
+/* callbacks */
 
 /**
  * Initialize the component library

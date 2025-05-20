@@ -30,19 +30,20 @@
  *  GLOBAL VARIABLES
  **********************/
 
-/*Fonts*/
+/* Global Styles */
+
+/* Fonts */
 lv_font_t * font_title;
 extern uint8_t Inter_SemiBold_ttf_data[];
 extern size_t Inter_SemiBold_ttf_data_size;
 lv_font_t * font_subtitle;
 
-/*Images*/
+/* Images */
 const void * img_wifi;
 const void * img_bluetooth;
 const void * img_bell;
 
 /*Subjects*/
-
 lv_subject_t subject_hours;
 lv_subject_t subject_mins;
 lv_subject_t subject_bluetooth_on;
@@ -61,21 +62,22 @@ void examples_init_gen(const char * asset_path)
 {
     char buf[256];
 
+    /* Global Styles */
+
+    /* Subjects */
     lv_subject_init_int(&subject_hours, 17);
-
     lv_subject_init_int(&subject_mins, 45);
-
     lv_subject_init_int(&subject_bluetooth_on, 0);
-
     lv_subject_init_int(&subject_wifi_on, 0);
-
     lv_subject_init_int(&subject_notification_on, 0);
 
+    /* Fonts */
     /* create tiny ttf font 'font_title' from C array */
     font_title = lv_tiny_ttf_create_data(Inter_SemiBold_ttf_data, Inter_SemiBold_ttf_data_size, 20);
     /* create tiny ttf font 'font_subtitle' from C array */
     font_subtitle = lv_tiny_ttf_create_data(Inter_SemiBold_ttf_data, Inter_SemiBold_ttf_data_size, 14);
 
+    /* Images */
     lv_snprintf(buf, 256, "%s%s", asset_path, "images/wifi-solid.png");
     img_wifi = lv_strdup(buf);
     lv_snprintf(buf, 256, "%s%s", asset_path, "images/bluetooth-brands.png");

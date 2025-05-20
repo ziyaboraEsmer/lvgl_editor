@@ -37,7 +37,7 @@ lv_obj_t * row_create(lv_obj_t * parent)
 
     static bool style_inited = false;
 
-    if(!style_inited) {
+    if (!style_inited) {
         
         lv_style_init(&style_main);
         lv_style_set_bg_opa(&style_main, 0);

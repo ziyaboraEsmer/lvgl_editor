@@ -9,8 +9,8 @@
     
     <styles>
         <style name="main" width="#size" height="#size" image_recolor="0xffffff"
-        image_recolor_opa="100%"/>
-        <style name="off" image_opa="50%"/>
+        image_recolor_opa="255"/>
+        <style name="off" image_opa="128"/>
     </styles>
     
     <view extends="lv_image" src="img_bell" styles="main off:disabled" inner_align="stretch"></view> 
