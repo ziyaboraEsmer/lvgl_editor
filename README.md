@@ -24,9 +24,7 @@ We believe designers should work freely in tools like Figma, focusing on creativ
 
 This video provides a step-by-step guide to all the supported features. A new video for v0.2 is coming soon. 
 
-[![image](https://github.com/user-attachments/assets/2c72c3c9-44fa-4ae4-8616-867e2efe3209)
-](https://youtu.be/gCxBAK9EByA)
-
+[![image](https://github.com/user-attachments/assets/2c72c3c9-44fa-4ae4-8616-867e2efe3209)](https://www.youtube.com/watch?v=YEoHK5P0ASE)
 
 ## Get Started
 
