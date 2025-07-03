@@ -13,9 +13,9 @@
  *      DEFINES
  *********************/
 
-#define HOURS_STRING "'0&#xA;1&#xA;2&#xA;3&#xA;4&#xA;5&#xA;6&#xA;7&#xA;8&#xA;9&#xA;10&#xA;11&#xA;12&#xA;13&#xA;14&#xA;15&#xA;16&#xA;17&#xA;18&#xA;19&#xA;20&#xA;21&#xA;22&#xA;23&#xA;24' normal"
+#define HOURS_STRING "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23"
 
-#define MINS_STRING "'0&#xA;1&#xA;2&#xA;3&#xA;4&#xA;5&#xA;6&#xA;7&#xA;8&#xA;9&#xA;10&#xA;11&#xA;12&#xA;13&#xA;14&#xA;15&#xA;16&#xA;17&#xA;18&#xA;19&#xA;20&#xA;21&#xA;22&#xA;23&#xA;24&#xA;25&#xA;26&#xA;27&#xA;28&#xA;29&#xA;30&#xA;31&#xA;32&#xA;33&#xA;34&#xA;35&#xA;36&#xA;37&#xA;38&#xA;39&#xA;40&#xA;41&#xA;42&#xA;43&#xA;44&#xA;45&#xA;46&#xA;47&#xA;48&#xA;49&#xA;50&#xA;51&#xA;52&#xA;53&#xA;54&#xA;55&#xA;56&#xA;57&#xA;58&#xA;59&#xA;60' normal"
+#define MINS_STRING "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47\n48\n49\n50\n51\n52\n53\n54\n55\n56\n57\n58\n59"
 
 /**********************
  *      TYPEDEFS
@@ -53,7 +53,7 @@ lv_obj_t * setclock_create(lv_obj_t * parent)
 
 
     lv_obj_t * lv_roller_0 = lv_roller_create(column_0);
-    lv_roller_set_options(lv_roller_0, HOURS_STRING, LV_ROLLER_MODE_NORMAL);    lv_roller_bind_value(lv_roller_0, &hours);
+    lv_roller_set_options(lv_roller_0, HOURS_STRING, LV_ROLLER_MODE_NORMAL);lv_roller_bind_value(lv_roller_0, &hours);
 
 
 
@@ -64,7 +64,7 @@ lv_obj_t * setclock_create(lv_obj_t * parent)
 
 
     lv_obj_t * lv_roller_1 = lv_roller_create(column_1);
-    lv_roller_set_options(lv_roller_1, MINS_STRING, LV_ROLLER_MODE_NORMAL);    lv_roller_bind_value(lv_roller_1, &mins);
+    lv_roller_set_options(lv_roller_1, MINS_STRING, LV_ROLLER_MODE_NORMAL);lv_roller_bind_value(lv_roller_1, &mins);
 
 
 

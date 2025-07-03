@@ -20,7 +20,7 @@ extern "C" {
 #ifdef LV_LVGL_H_INCLUDE_SIMPLE
     #include "lvgl.h"
 #else
-    #include "../../lvgl.h"
+    #include "lvgl/lvgl.h"
 #endif
 
 /*********************
@@ -42,6 +42,7 @@ extern "C" {
 /*-------------------
  * Permanent screens
  *------------------*/
+extern lv_obj_t * settings;
 
 /*----------------
  * Global styles
@@ -101,6 +102,7 @@ void examples_init_gen(const char * asset_path);
 #include "components/setclock/setclock_gen.h"
 #include "components/subtitle/subtitle_gen.h"
 #include "components/title/title_gen.h"
+#include "screens/about/about_gen.h"
 #include "screens/settings/settings_gen.h"
 
 #ifdef __cplusplus

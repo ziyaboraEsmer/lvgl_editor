@@ -1,6 +1,8 @@
 <component>
     <previews>
-        <preview name="setclock" style_bg_color="0xbbbbbb" width="200" height="200" style_layout="flex" style_flex_flow="row" style_flex_track_place="center" style_flex_main_place="center" />
+        <preview name="setclock" style_bg_color="0xbbbbbb" width="200" height="200" 
+                 style_layout="flex" style_flex_flow="row" 
+                 style_flex_track_place="center" style_flex_main_place="center" />
     </previews>
 
     <consts>

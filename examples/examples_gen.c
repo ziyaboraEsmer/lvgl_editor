@@ -37,6 +37,7 @@
 /*--------------------
  *  Permanent screens
  *-------------------*/
+lv_obj_t * settings;
 
 /*----------------
  * Global styles
@@ -145,6 +146,7 @@ void examples_init_gen(const char * asset_path)
     /*--------------------
     *  Permanent screens
     *-------------------*/
+    settings = settings_create();
 }
 
 /* callbacks */

@@ -1,9 +1,9 @@
 /**
- * @file column_gen.h
+ * @file about_gen.h
  */
 
-#ifndef COLUMN_H
-#define COLUMN_H
+#ifndef ABOUT_H
+#define ABOUT_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -31,7 +31,9 @@ extern "C" {
  **********************/
 
 
-lv_obj_t * column_create(lv_obj_t * parent);
+
+
+lv_obj_t * about_create(void);
 
 /**********************
  *      MACROS
@@ -41,4 +43,4 @@ lv_obj_t * column_create(lv_obj_t * parent);
 } /*extern "C"*/
 #endif
 
-#endif /*COLUMN_H*/
+#endif /*ABOUT_H*/

@@ -1,17 +1,21 @@
-<screen>
+<screen permanent="true">
     <styles>
         <style name="main" pad_all="0" border_width="0" radius="0" layout="flex" flex_flow="column" pad_row="0" text_font="font_subtitle" />
     </styles>
 
     <view width="100%" height="100%">
         <style name="main" />
-        <header title="Settings"/>
+        <header title="settings"/>
         <row style_bg_color="0xebebeb" style_bg_opa="255" style_pad_all="5"
-               width="100%">
+               width="100%" flex_flow="row_wrap">
             <column>
-                <checkbox text="Notifications" subject="notification_on" />
                 <checkbox text="Bluetooth" subject="bluetooth_on"/>
-                <checkbox text="WiFi" subject="wifi_on"/>
+                <checkbox text="WiFi" subject="wifi_on"/> 
+                <checkbox text="Notifications" subject="notification_on" />
+                <lv_button style_text_font="font_subtitle">
+                    <lv_label text-translated="about"/>
+                    <screen_create_event screen="about" anim_type="move_top" duration="500"/>
+                </lv_button>
             </column>
             <setclock />
         </row>

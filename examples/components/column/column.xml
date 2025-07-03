@@ -1,7 +1,11 @@
 <component>
+    <consts>
+        <int name="space_md" value="15"/>
+    </consts>
     <styles>
         <style name="main" 
-            bg_opa="0" border_width="0" pad_all="5"
+            bg_opa="0" border_width="0"
+            pad_row="#space_md"
             width="content" height="content"
             layout="flex"
             flex_flow="column"

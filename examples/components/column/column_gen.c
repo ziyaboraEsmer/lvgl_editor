@@ -13,7 +13,7 @@
  *      DEFINES
  *********************/
 
-
+#define SPACE_MD 15
 
 /**********************
  *      TYPEDEFS
@@ -43,7 +43,7 @@ lv_obj_t * column_create(lv_obj_t * parent)
         lv_style_init(&main);
         lv_style_set_bg_opa(&main, 0);
         lv_style_set_border_width(&main, 0);
-        lv_style_set_pad_all(&main, 0);
+        lv_style_set_pad_row(&main, SPACE_MD);
         lv_style_set_width(&main, LV_SIZE_CONTENT);
         lv_style_set_height(&main, LV_SIZE_CONTENT);
         lv_style_set_layout(&main, LV_LAYOUT_FLEX);

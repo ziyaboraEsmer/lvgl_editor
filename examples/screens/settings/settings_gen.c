@@ -36,7 +36,6 @@ lv_obj_t * settings_create(void)
     LV_TRACE_OBJ_CREATE("begin");
 
     static lv_style_t main;
-    static lv_style_t content;
 
     static bool style_inited = false;
 
@@ -49,8 +48,6 @@ lv_obj_t * settings_create(void)
         lv_style_set_flex_flow(&main, LV_FLEX_FLOW_COLUMN);
         lv_style_set_pad_row(&main, 0);
         lv_style_set_text_font(&main, font_subtitle);
-
-        lv_style_init(&content);
 
         style_inited = true;
     }
@@ -66,20 +63,27 @@ lv_obj_t * settings_create(void)
     lv_obj_t * row_0 = row_create(lv_obj_0);
     lv_obj_set_style_bg_color(row_0, lv_color_hex(0xebebeb), 0);
     lv_obj_set_style_bg_opa(row_0, 255, 0);
-    lv_obj_set_style_pad_all(row_0, 12, 0);
+    lv_obj_set_style_pad_all(row_0, 5, 0);
     lv_obj_set_width(row_0, lv_pct(100));
-    lv_obj_set_flex_grow(row_0, 1);
     lv_obj_set_flex_flow(row_0, LV_FLEX_FLOW_ROW_WRAP);
 
     lv_obj_t * column_0 = column_create(row_0);
 
-    lv_obj_t * checkbox_0 = checkbox_create(column_0, "Notifications", &notification_on);
+    lv_obj_t * checkbox_0 = checkbox_create(column_0, "Bluetooth", &bluetooth_on);
 
 
-    lv_obj_t * checkbox_1 = checkbox_create(column_0, "Bluetooth", &bluetooth_on);
+    lv_obj_t * checkbox_1 = checkbox_create(column_0, "WiFi", &wifi_on);
 
 
-    lv_obj_t * checkbox_2 = checkbox_create(column_0, "WiFi", &wifi_on);
+    lv_obj_t * checkbox_2 = checkbox_create(column_0, "Notifications", &notification_on);
+
+
+    lv_obj_t * lv_button_0 = lv_button_create(column_0);
+
+    lv_obj_t * lv_label_0 = lv_label_create(lv_button_0);
+    lv_label_set_text(lv_label_0, "About");
+
+    lv_obj_add_screen_create_event(lv_button_0, LV_EVENT_CLICKED, about_create, LV_SCREEN_LOAD_ANIM_MOVE_TOP, 500, 0);
 
 
 

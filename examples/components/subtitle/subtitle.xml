@@ -1,6 +1,6 @@
 <component>
     <api>
-        <prop name="text" type="string" default="Subtitle"></prop>
+        <prop name="text" type="string" default="settings"></prop>
     </api>
     <styles>
         <style name="main" text_font="font_subtitle"/>

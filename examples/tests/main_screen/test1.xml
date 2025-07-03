@@ -1,0 +1,42 @@
+<test>
+    <view extends="settings"></view>
+
+    <steps>
+        <subject_set subject="bluetooth_on" value="0"/>
+        <subject_set subject="wifi_on" value="0"/>
+        <subject_set subject="notification_on" value="0"/>
+        <subject_set subject="hours" value="3"/>
+        <subject_set subject="mins" value="45"/>
+
+        <screenshot_compare path="start.png" />
+        <wait ms="500" />
+
+        <click_at x="29" y="59"/>
+        <wait ms="500" />
+        <screenshot_compare path="bluetooth_on.png" />
+        
+        <click_at x="28" y="91"/>
+        <wait ms="500" />
+        <screenshot_compare path="wifi_on.png" />
+        
+        <click_at x="28" y="127"/>
+        <wait ms="500" />
+        <screenshot_compare path="notifications_on.png" />
+        
+        <click_at x="184" y="178"/>
+        <wait ms="500" />
+        <screenshot_compare path="hour_changes.png" />
+        
+        <click_at x="269" y="116"/>
+        <wait ms="500" />
+        <screenshot_compare path="min_changes.png" />
+        
+        <click_at x="64" y="175"/>
+        <wait ms="200" />
+        <screenshot_compare path="about_page_half.png" />
+        
+        <wait ms="400" />
+        <screenshot_compare path="about_page_full.png" />
+        
+    </steps>
+</test>
