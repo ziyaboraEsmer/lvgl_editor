@@ -56,7 +56,7 @@ jobs:
       - name: Generate manifest file
         run: |
           cd /tmp/online-preview
-          node generateManifests.js project/examples
+          node generateManifests.js project/examples/
 
       - name: Build LVGL library
         run: |
