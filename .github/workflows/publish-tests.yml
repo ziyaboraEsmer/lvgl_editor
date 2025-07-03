@@ -63,7 +63,7 @@ jobs:
           docker run --rm \
             -v /tmp/runtime:/work \
             -w /tmp \
-            lvglio/emscripten-sdl2:0.1.0 \
+            lvglio/emscripten-sdl2:0.2.0 \
             sh -c 'apt-get update && \
                   apt-get install -y python3-venv && \
                   cd /work/lib && \
