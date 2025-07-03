@@ -44,6 +44,7 @@ jobs:
           # Clone LVGL PR
           git clone https://github.com/lvgl/lvgl.git /tmp/runtime/lvgl
           # copy xmls folder to online-preview
+          mkdir -p /tmp/online-preview/resources/lvgl
           cp -r /tmp/runtime/lvgl/xmls /tmp/online-preview/resources/lvgl/xmls
 
       - name: Prepare preview files
