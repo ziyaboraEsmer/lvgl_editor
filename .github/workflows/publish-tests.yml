@@ -42,7 +42,7 @@ jobs:
           # Copy resources to runtime directory
           cp -r /tmp/online-preview/runtime/* /tmp/runtime/
           # Clone LVGL PR
-          git clone https://github.com/lvgl/lvgl.git /tmp/runtime/lvgl
+          git clone https://github.com/lvgl/lvgl.git /tmp/runtime/
           # copy xmls folder to online-preview
           mkdir -p /tmp/online-preview/resources/lvgl
           cp -r /tmp/runtime/lvgl/xmls /tmp/online-preview/resources/lvgl/xmls
@@ -57,6 +57,19 @@ jobs:
         run: |
           cd /tmp/online-preview
           node generateManifests.js project/
+
+      - name: Build LVGL library
+        run: |
+          docker run --rm \
+            -v /tmp/runtime:/work \
+            -w /tmp \
+            lvglio/emscripten-sdl2:0.2.0 \
+            sh -c 'apt-get update && \
+                  apt-get install -y python3-venv && \
+                  cd /work/lvgl && \
+                  mkdir -p /tmp/build && cd /tmp/build && \
+                  emcmake cmake /work/lvgl && \
+                  emmake make -j$(nproc)'
 
       - name: Build runtime
         run: |
