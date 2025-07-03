@@ -24,7 +24,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Pull Docker image
-        run: docker pull lvglio/emscripten-sdl2:0.2.0
+        run: docker pull lvglio/emscripten-sdl2:0.1.0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -63,7 +63,7 @@ jobs:
           docker run --rm \
             -v /tmp/runtime:/work \
             -w /tmp \
-            lvglio/emscripten-sdl2:0.2.0 \
+            lvglio/emscripten-sdl2:0.1.0 \
             sh -c 'apt-get update && \
                   apt-get install -y python3-venv && \
                   cd /work/lib && \
