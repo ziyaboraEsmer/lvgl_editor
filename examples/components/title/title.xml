@@ -5,5 +5,7 @@
     <styles>
         <style name="main" text_font="font_title"/>
     </styles>
-    <view extends="lv_label" text="$text" styles="main"></view>
+    <view extends="lv_label" text="$text">
+        <style name="main" />
+    </view>
 </component>

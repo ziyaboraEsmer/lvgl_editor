@@ -8,5 +8,7 @@
             radius="0"
             />
     </styles>
-    <view styles="main"/>
+    <view>
+        <style name="main" />
+    </view>
 </component>
