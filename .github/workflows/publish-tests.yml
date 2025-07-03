@@ -43,6 +43,8 @@ jobs:
           cp -r /tmp/online-preview/runtime/* /tmp/runtime/
           # Clone LVGL PR
           git clone https://github.com/lvgl/lvgl.git /tmp/runtime/lvgl
+          # copy xmls folder to online-preview
+          cp -r /tmp/runtime/lvgl/xmls /tmp/online-preview/resources/lvgl/xmls
 
       - name: Prepare preview files
         run: |
@@ -53,7 +55,7 @@ jobs:
       - name: Generate manifest file
         run: |
           cd /tmp/online-preview
-          node generateProjectManifest.js ./project/ project/
+          node generateManifests.js project/
 
       - name: Build LVGL library
         run: |
