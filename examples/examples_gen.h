@@ -70,6 +70,7 @@ extern lv_subject_t mins;
 extern lv_subject_t bluetooth_on;
 extern lv_subject_t wifi_on;
 extern lv_subject_t notification_on;
+extern lv_subject_t sf;
 
 /**********************
  * GLOBAL PROTOTYPES
@@ -78,6 +79,7 @@ extern lv_subject_t notification_on;
 /*----------------
  * Event Callbacks
  *----------------*/
+void about_click_event_cb(lv_event_t * e);
 
 /**
  * Initialize the component library

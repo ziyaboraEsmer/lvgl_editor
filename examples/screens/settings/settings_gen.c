@@ -57,7 +57,7 @@ lv_obj_t * settings_create(void)
     lv_obj_set_height(lv_obj_0, lv_pct(100));
     lv_obj_add_style(lv_obj_0, &main, 0);
 
-    lv_obj_t * header_0 = header_create(lv_obj_0, "Settings");
+    lv_obj_t * header_0 = header_create(lv_obj_0, "settings");
 
 
     lv_obj_t * row_0 = row_create(lv_obj_0);
@@ -79,11 +79,14 @@ lv_obj_t * settings_create(void)
 
 
     lv_obj_t * lv_button_0 = lv_button_create(column_0);
+    lv_obj_set_style_text_font(lv_button_0, font_subtitle, 0);
+    lv_obj_add_subject_increment_event(lv_button_0, &bluetooth_on, LV_EVENT_CLICKED, 1, -2000000, 2000000);
 
     lv_obj_t * lv_label_0 = lv_label_create(lv_button_0);
-    lv_label_set_text(lv_label_0, "About");
+    lv_label_set_text(lv_label_0, lv_tr("about"));
 
-    lv_obj_add_screen_create_event(lv_button_0, LV_EVENT_CLICKED, about_create, LV_SCREEN_LOAD_ANIM_MOVE_TOP, 500, 0);
+    lv_obj_add_screen_create_event(lv_button_0, LV_EVENT_CLICKED, about_create, LV_SCREEN_LOAD_ANIM_FADE_ON, 500, 0);
+    lv_obj_add_event_cb(lv_button_0, about_click_event_cb, LV_EVENT_CLICKED, NULL);
 
 
 

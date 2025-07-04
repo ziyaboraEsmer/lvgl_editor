@@ -62,7 +62,8 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
     lv_obj_set_flag(lv_obj_0, LV_OBJ_FLAG_SCROLLABLE, false);
     lv_obj_add_style(lv_obj_0, &main, 0);
 
-    lv_obj_t * subtitle_0 = subtitle_create(lv_obj_0, title);
+    lv_obj_t * subtitle_0 = subtitle_create(lv_obj_0, "settings");
+    lv_label_set_text(subtitle_0, lv_tr(title));
     lv_obj_set_flex_grow(subtitle_0, 1);
 
 
@@ -87,13 +88,13 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
     lv_obj_set_style_text_color(row_0, lv_color_hex(0xffffff), 0);
     lv_obj_set_style_pad_column(row_0, 0, 0);
 
-    lv_obj_t * subtitle_1 = subtitle_create(row_0, "Subtitle");
+    lv_obj_t * subtitle_1 = subtitle_create(row_0, "settings");
     lv_label_bind_text(subtitle_1, &hours, NULL);
 
     lv_obj_t * subtitle_2 = subtitle_create(row_0, ":");
 
 
-    lv_obj_t * subtitle_3 = subtitle_create(row_0, "Subtitle");
+    lv_obj_t * subtitle_3 = subtitle_create(row_0, "settings");
     lv_label_bind_text(subtitle_3, &mins, NULL);
 
 

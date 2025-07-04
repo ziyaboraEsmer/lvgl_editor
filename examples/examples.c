@@ -33,9 +33,15 @@
 
 void examples_init(const char * asset_path)
 {
+    lv_subject_init_float(&sf, 12.34);
     examples_init_gen(asset_path);
 }
 
+void  about_click_event_cb(lv_event_t * e)
+{
+   LV_UNUSED(e);
+   LV_LOG("The about button was clicked\n");
+}
 /**********************
  *   STATIC FUNCTIONS
  **********************/

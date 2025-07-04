@@ -10,7 +10,6 @@
                 <lv_label text-translated="back"/>
                 <screen_load_event screen="settings"/> 
             </lv_button>
-
         </column>
    </view>
 </screen>

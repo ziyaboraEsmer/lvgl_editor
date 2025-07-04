@@ -37,6 +37,7 @@
         
         <wait ms="400" />
         <screenshot_compare path="about_page_full.png" />
+        <click_at x="148" y="166"/>
         
     </steps>
 </test>

@@ -56,15 +56,31 @@ lv_obj_t * about_create(void)
     lv_obj_t * lv_label_0 = lv_label_create(column_0);
     lv_obj_set_width(lv_label_0, lv_pct(100));
     lv_obj_set_style_text_align(lv_label_0, LV_TEXT_ALIGN_CENTER, 0);
-    lv_label_set_text(lv_label_0, "This UI was created with LVGL's UI Editor");
+    lv_label_set_text(lv_label_0, lv_tr("info"));
 
 
     lv_obj_t * lv_button_0 = lv_button_create(column_0);
+    lv_obj_set_style_text_font(lv_button_0, font_subtitle, 0);
 
     lv_obj_t * lv_label_1 = lv_label_create(lv_button_0);
-    lv_label_set_text(lv_label_1, "Back");
+    lv_label_set_text(lv_label_1, lv_tr("back"));
 
     lv_obj_add_screen_load_event(lv_button_0, LV_EVENT_CLICKED, settings, LV_SCREEN_LOAD_ANIM_NONE, 0, 0);
+
+
+    lv_obj_t * lv_label_2 = lv_label_create(column_0);
+    lv_label_bind_text(lv_label_2, &sf, "%0.2f fractions");
+
+    lv_obj_t * lv_button_1 = lv_button_create(column_0);
+
+    lv_obj_t * lv_label_3 = lv_label_create(lv_button_1);
+    lv_label_set_text(lv_label_3, "Set");
+
+    lv_obj_add_subject_set_int_event(lv_button_1, &hours, LV_EVENT_CLICKED, 10);
+    lv_obj_add_subject_increment_event(lv_button_1, &sf, LV_EVENT_CLICKED, 10, -2000000, 2000000);
+
+
+    lv_obj_t * lv_chart_0 = lv_chart_create(column_0);
 
 
 

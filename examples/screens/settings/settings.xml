@@ -12,12 +12,25 @@
                 <checkbox text="Bluetooth" subject="bluetooth_on"/>
                 <checkbox text="WiFi" subject="wifi_on"/> 
                 <checkbox text="Notifications" subject="notification_on" />
+                
+                <row style_flex_cross_place="center">
+                    <step_button step="-1" subject="age" text="-" min="0"/>
+                    <column style_pad_all="0" style_pad_row="0">   
+                        <lv_label style_text_font="font_subtitle" text="Age"/>
+                        <lv_label style_text_font="font_title" bind_text="age"/>
+                    </column>   
+                    <step_button step="1" subject="age" text="+" max="99"/>
+                </row>
+                
                 <lv_button style_text_font="font_subtitle">
+                    <subject_increment_event subject="bluetooth_on" step="1"></subject_increment_event>
                     <lv_label text-translated="about"/>
-                    <screen_create_event screen="about" anim_type="move_top" duration="500"/>
+                    <screen_create_event screen="about" anim_type="fade_on" duration="500"/>
+                    <event_cb callback="about_click_event_cb" trigger="clicked" />
                 </lv_button>
-            </column>
+            </column>  
             <setclock />
+            
         </row>
     </view>
 </screen>

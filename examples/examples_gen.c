@@ -29,6 +29,14 @@
 /*----------------
  * Translations
  *----------------*/
+static const char * translation_languages[] = {"en", "de", NULL};
+static const char * translation_tags[] = {"settings", "about", "back", "info", NULL};
+static const char * translation_texts[] = {
+    "Settings", "Einstellungen", /* settings */
+    "About", "Über", /* about */
+    "Back", "Zurück", /* back */
+    "This UI was created with LVGL's UI Editor", "Diese Benutzeroberfläche wurde mit dem UI-Editor von LVGL erstellt.", /* info */
+};
 
 /**********************
  *  GLOBAL VARIABLES
@@ -66,6 +74,7 @@ lv_subject_t mins;
 lv_subject_t bluetooth_on;
 lv_subject_t wifi_on;
 lv_subject_t notification_on;
+lv_subject_t sf;
 
 /**********************
  *      MACROS
@@ -114,12 +123,22 @@ void examples_init_gen(const char * asset_path)
     /*----------------
      * Translations
      *----------------*/
+    lv_translation_add_static(translation_languages, translation_tags, translation_texts);
 
 
 #if LV_USE_XML
     /*Register widgets*/
 
     /* Register callbacks */
+    lv_xml_register_event_cb(NULL, "about_click_event_cb", about_click_event_cb);
+
+    /* Register subjects */
+    lv_xml_register_subject(NULL, "hours", &hours);
+    lv_xml_register_subject(NULL, "mins", &mins);
+    lv_xml_register_subject(NULL, "bluetooth_on", &bluetooth_on);
+    lv_xml_register_subject(NULL, "wifi_on", &wifi_on);
+    lv_xml_register_subject(NULL, "notification_on", &notification_on);
+    lv_xml_register_subject(NULL, "sf", &sf);
 #endif
 
     /* Register all the global assets so that they won't be created again when globals.xml is parsed.
@@ -134,13 +153,6 @@ void examples_init_gen(const char * asset_path)
     lv_xml_register_image(NULL, "img_wifi", img_wifi);
     lv_xml_register_image(NULL, "img_bluetooth", img_bluetooth);
     lv_xml_register_image(NULL, "img_bell", img_bell);
-
-    /* Register subjects */
-    lv_xml_register_subject(NULL, "hours", &hours);
-    lv_xml_register_subject(NULL, "mins", &mins);
-    lv_xml_register_subject(NULL, "bluetooth_on", &bluetooth_on);
-    lv_xml_register_subject(NULL, "wifi_on", &wifi_on);
-    lv_xml_register_subject(NULL, "notification_on", &notification_on);
 #endif
 
     /*--------------------
@@ -150,6 +162,13 @@ void examples_init_gen(const char * asset_path)
 }
 
 /* callbacks */
+#if defined(LV_EDITOR_PREVIEW)
+void __attribute__((weak)) about_click_event_cb(lv_event_t * e)
+{
+   LV_UNUSED(e);
+   LV_LOG("about_click_event_cb was called\n");
+}
+#endif
 
 /**********************
  *   STATIC FUNCTIONS
