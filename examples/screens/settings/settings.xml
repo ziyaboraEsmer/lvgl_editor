@@ -23,7 +23,6 @@
                 </row>
                 
                 <lv_button style_text_font="font_subtitle">
-                    <subject_increment_event subject="bluetooth_on" step="1"></subject_increment_event>
                     <lv_label text-translated="about"/>
                     <screen_create_event screen="about" anim_type="fade_on" duration="500"/>
                     <event_cb callback="about_click_event_cb" trigger="clicked" />
