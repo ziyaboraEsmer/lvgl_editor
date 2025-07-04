@@ -15,12 +15,18 @@
           style_pad_all="0" style_bg_opa="0" style_border_width="0">
         <column style_flex_cross_place="center">
             <subtitle text="Hour"></subtitle>
-            <lv_roller options="#hours_string" bind_value="hours"></lv_roller>
+            <lv_roller options="#hours_string" bind_value="hours">
+               <subject_set_int_event subject="hour_edited" trigger="pressed" value="1"/>
+               <subject_set_int_event subject="hour_edited" trigger="released" value="0"/>
+            </lv_roller>
         </column>
 
         <column style_flex_cross_place="center">
             <subtitle text="Mins"></subtitle>
-            <lv_roller options="#mins_string"  bind_value="mins"></lv_roller>
+            <lv_roller options="#mins_string" bind_value="mins">
+               <subject_set_int_event subject="min_edited" trigger="pressed" value="1"/>
+               <subject_set_int_event subject="min_edited" trigger="released" value="0"/>
+            </lv_roller>
         </column>
     </view>
 </component>

@@ -18,5 +18,7 @@
         <int name="bluetooth_on" value="0"/>
         <int name="wifi_on" value="0"/>
         <int name="notification_on" value="0"/>
+        <int name="hour_edited" value="0"/>
+        <int name="min_edited" value="0"/>
     </subjects>
 </globals>
