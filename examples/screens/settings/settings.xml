@@ -15,7 +15,7 @@
                 
                 <row style_flex_cross_place="center">
                     <step_button step="-1" subject="age" text="-" min="0"/>
-                    <column style_pad_all="0" style_pad_row="0">   
+                    <column style_pad_all="0" style_pad_row="0" style_flex_cross_place="center">   
                         <lv_label style_text_font="font_subtitle" text="Age"/>
                         <lv_label style_text_font="font_title" bind_text="age"/>
                     </column>   
