@@ -33,7 +33,6 @@
 
 void examples_init(const char * asset_path)
 {
-    lv_subject_init_float(&sf, 12.34);
     examples_init_gen(asset_path);
 }
 

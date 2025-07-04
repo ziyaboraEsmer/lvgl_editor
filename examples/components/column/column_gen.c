@@ -13,7 +13,7 @@
  *      DEFINES
  *********************/
 
-#define SPACE_MD 15
+#define SPACE_MD 5
 
 /**********************
  *      TYPEDEFS

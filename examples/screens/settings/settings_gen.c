@@ -78,12 +78,36 @@ lv_obj_t * settings_create(void)
     lv_obj_t * checkbox_2 = checkbox_create(column_0, "Notifications", &notification_on);
 
 
+    lv_obj_t * row_1 = row_create(column_0);
+    lv_obj_set_style_flex_cross_place(row_1, LV_FLEX_ALIGN_CENTER, 0);
+
+    lv_obj_t * step_button_0 = step_button_create(row_1, &age, -1, 0, 2000000, "-");
+
+
+    lv_obj_t * column_1 = column_create(row_1);
+    lv_obj_set_style_pad_all(column_1, 0, 0);
+    lv_obj_set_style_pad_row(column_1, 0, 0);
+
+    lv_obj_t * lv_label_0 = lv_label_create(column_1);
+    lv_obj_set_style_text_font(lv_label_0, font_subtitle, 0);
+    lv_label_set_text(lv_label_0, "Age");
+
+
+    lv_obj_t * lv_label_1 = lv_label_create(column_1);
+    lv_obj_set_style_text_font(lv_label_1, font_title, 0);
+    lv_label_bind_text(lv_label_1, &age, NULL);
+
+
+    lv_obj_t * step_button_1 = step_button_create(row_1, &age, 1, -2000000, 99, "+");
+
+
+
     lv_obj_t * lv_button_0 = lv_button_create(column_0);
     lv_obj_set_style_text_font(lv_button_0, font_subtitle, 0);
     lv_obj_add_subject_increment_event(lv_button_0, &bluetooth_on, LV_EVENT_CLICKED, 1, -2000000, 2000000);
 
-    lv_obj_t * lv_label_0 = lv_label_create(lv_button_0);
-    lv_label_set_text(lv_label_0, lv_tr("about"));
+    lv_obj_t * lv_label_2 = lv_label_create(lv_button_0);
+    lv_label_set_text(lv_label_2, lv_tr("about"));
 
     lv_obj_add_screen_create_event(lv_button_0, LV_EVENT_CLICKED, about_create, LV_SCREEN_LOAD_ANIM_FADE_ON, 500, 0);
     lv_obj_add_event_cb(lv_button_0, about_click_event_cb, LV_EVENT_CLICKED, NULL);

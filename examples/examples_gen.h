@@ -67,10 +67,10 @@ extern const void * img_bell;
  *----------------*/
 extern lv_subject_t hours;
 extern lv_subject_t mins;
+extern lv_subject_t age;
 extern lv_subject_t bluetooth_on;
 extern lv_subject_t wifi_on;
 extern lv_subject_t notification_on;
-extern lv_subject_t sf;
 
 /**********************
  * GLOBAL PROTOTYPES
@@ -102,6 +102,7 @@ void examples_init_gen(const char * asset_path);
 #include "components/icon/icon_gen.h"
 #include "components/row/row_gen.h"
 #include "components/setclock/setclock_gen.h"
+#include "components/step_button/step_button_gen.h"
 #include "components/subtitle/subtitle_gen.h"
 #include "components/title/title_gen.h"
 #include "screens/about/about_gen.h"

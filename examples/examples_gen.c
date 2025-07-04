@@ -71,10 +71,10 @@ const void * img_bell;
  *----------------*/
 lv_subject_t hours;
 lv_subject_t mins;
+lv_subject_t age;
 lv_subject_t bluetooth_on;
 lv_subject_t wifi_on;
 lv_subject_t notification_on;
-lv_subject_t sf;
 
 /**********************
  *      MACROS
@@ -116,6 +116,7 @@ void examples_init_gen(const char * asset_path)
      *----------------*/
     lv_subject_init_int(&hours, 17);
     lv_subject_init_int(&mins, 45);
+    lv_subject_init_int(&age, 17);
     lv_subject_init_int(&bluetooth_on, 0);
     lv_subject_init_int(&wifi_on, 0);
     lv_subject_init_int(&notification_on, 0);
@@ -131,14 +132,6 @@ void examples_init_gen(const char * asset_path)
 
     /* Register callbacks */
     lv_xml_register_event_cb(NULL, "about_click_event_cb", about_click_event_cb);
-
-    /* Register subjects */
-    lv_xml_register_subject(NULL, "hours", &hours);
-    lv_xml_register_subject(NULL, "mins", &mins);
-    lv_xml_register_subject(NULL, "bluetooth_on", &bluetooth_on);
-    lv_xml_register_subject(NULL, "wifi_on", &wifi_on);
-    lv_xml_register_subject(NULL, "notification_on", &notification_on);
-    lv_xml_register_subject(NULL, "sf", &sf);
 #endif
 
     /* Register all the global assets so that they won't be created again when globals.xml is parsed.
@@ -153,6 +146,14 @@ void examples_init_gen(const char * asset_path)
     lv_xml_register_image(NULL, "img_wifi", img_wifi);
     lv_xml_register_image(NULL, "img_bluetooth", img_bluetooth);
     lv_xml_register_image(NULL, "img_bell", img_bell);
+
+    /* Register subjects */
+    lv_xml_register_subject(NULL, "hours", &hours);
+    lv_xml_register_subject(NULL, "mins", &mins);
+    lv_xml_register_subject(NULL, "age", &age);
+    lv_xml_register_subject(NULL, "bluetooth_on", &bluetooth_on);
+    lv_xml_register_subject(NULL, "wifi_on", &wifi_on);
+    lv_xml_register_subject(NULL, "notification_on", &notification_on);
 #endif
 
     /*--------------------
