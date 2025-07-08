@@ -35,7 +35,7 @@ This video provides a step-by-step guide to all the supported features. A new vi
 5. **Prepare the Project** Generate C code by clicking the ![image](https://github.com/user-attachments/assets/f2c720b6-19cf-4abd-a79b-ac31b2cc0fec)
 `Generate Code` button first and click ![image](https://github.com/user-attachments/assets/8cb7fb0b-bde3-4be7-af31-10131c5c9476)
 `Compile Project` button after that to recompile the Editor's preview with the new C code.  
-6. **Edit components**: Open `button_default.xml` and make edits. Save the file (Ctrl+S) to update the preview. Learn more about LVGL's XML language [here](https://docs.lvgl.io/master/details/auxiliary-modules/xml/index.html).
+6. **Edit components**: Open `button_default.xml` and make edits. Save the file (Ctrl+S) to update the preview. Learn more about LVGL's XML language [here](https://docs.lvgl.io/master/details/xml/index.html).
 7. **Edit a widget**: Open `slider_box.xml` (a widget) and click "Compile Code." It will compile the C code alongside the widget's XML. Feel free to edit the C code and recompile it.
 8. **Check out Fonts and Images**: Open `globals.xml` to see how images and fonts are handled.
 9. **Open the [Figma project](https://www.figma.com/design/itmQpC9m5HessaOZFbYTwK/Example?node-id=0-1&t=oWqPUdcRyVYtRgAY-0)** and duplicate it.
