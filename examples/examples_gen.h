@@ -71,6 +71,8 @@ extern lv_subject_t age;
 extern lv_subject_t bluetooth_on;
 extern lv_subject_t wifi_on;
 extern lv_subject_t notification_on;
+extern lv_subject_t hour_edited;
+extern lv_subject_t min_edited;
 
 /**********************
  * GLOBAL PROTOTYPES

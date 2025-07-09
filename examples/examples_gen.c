@@ -75,6 +75,8 @@ lv_subject_t age;
 lv_subject_t bluetooth_on;
 lv_subject_t wifi_on;
 lv_subject_t notification_on;
+lv_subject_t hour_edited;
+lv_subject_t min_edited;
 
 /**********************
  *      MACROS
@@ -120,6 +122,8 @@ void examples_init_gen(const char * asset_path)
     lv_subject_init_int(&bluetooth_on, 0);
     lv_subject_init_int(&wifi_on, 0);
     lv_subject_init_int(&notification_on, 0);
+    lv_subject_init_int(&hour_edited, 0);
+    lv_subject_init_int(&min_edited, 0);
 
     /*----------------
      * Translations
@@ -130,22 +134,9 @@ void examples_init_gen(const char * asset_path)
 #if LV_USE_XML
     /*Register widgets*/
 
-    /* Register callbacks */
-    lv_xml_register_event_cb(NULL, "about_click_event_cb", about_click_event_cb);
-#endif
-
-    /* Register all the global assets so that they won't be created again when globals.xml is parsed.
-     * While running in the editor skip this step to update the preview when the XML changes */
-#if LV_USE_XML && !defined(LV_EDITOR_PREVIEW)
-
     /* Register fonts */
     lv_xml_register_font(NULL, "font_title", font_title);
     lv_xml_register_font(NULL, "font_subtitle", font_subtitle);
-
-    /* Register images */
-    lv_xml_register_image(NULL, "img_wifi", img_wifi);
-    lv_xml_register_image(NULL, "img_bluetooth", img_bluetooth);
-    lv_xml_register_image(NULL, "img_bell", img_bell);
 
     /* Register subjects */
     lv_xml_register_subject(NULL, "hours", &hours);
@@ -154,12 +145,33 @@ void examples_init_gen(const char * asset_path)
     lv_xml_register_subject(NULL, "bluetooth_on", &bluetooth_on);
     lv_xml_register_subject(NULL, "wifi_on", &wifi_on);
     lv_xml_register_subject(NULL, "notification_on", &notification_on);
+    lv_xml_register_subject(NULL, "hour_edited", &hour_edited);
+    lv_xml_register_subject(NULL, "min_edited", &min_edited);
+
+    /* Register callbacks */
+    lv_xml_register_event_cb(NULL, "about_click_event_cb", about_click_event_cb);
 #endif
 
+    /* Register all the global assets so that they won't be created again when globals.xml is parsed.
+     * While running in the editor skip this step to update the preview when the XML changes */
+#if LV_USE_XML && !defined(LV_EDITOR_PREVIEW)
+
+    /* Register images */
+    lv_xml_register_image(NULL, "img_wifi", img_wifi);
+    lv_xml_register_image(NULL, "img_bluetooth", img_bluetooth);
+    lv_xml_register_image(NULL, "img_bell", img_bell);
+#endif
+
+#if LV_USE_XML == 0
     /*--------------------
     *  Permanent screens
     *-------------------*/
+
+    /*If XML is enabled it's assumed that the permanent screens are created
+     *manaully from XML using lv_xml_create()*/
+
     settings = settings_create();
+#endif
 }
 
 /* callbacks */

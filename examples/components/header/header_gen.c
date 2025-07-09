@@ -36,6 +36,7 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
     LV_TRACE_OBJ_CREATE("begin");
 
     static lv_style_t main;
+    static lv_style_t edited;
 
     static bool style_inited = false;
 
@@ -54,6 +55,9 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
         lv_style_set_flex_track_place(&main, LV_FLEX_ALIGN_CENTER);
         lv_style_set_flex_flow(&main, LV_FLEX_FLOW_ROW);
         lv_style_set_text_color(&main, lv_color_hex(0xffffff));
+
+        lv_style_init(&edited);
+        lv_style_set_text_color(&edited, lv_color_hex(0x0099ee));
 
         style_inited = true;
     }
@@ -89,13 +93,15 @@ lv_obj_t * header_create(lv_obj_t * parent, const char * title)
     lv_obj_set_style_pad_column(row_0, 0, 0);
 
     lv_obj_t * subtitle_1 = subtitle_create(row_0, "settings");
-    lv_label_bind_text(subtitle_1, &hours, NULL);
+    lv_label_bind_text(subtitle_1, &hours, NULL);    lv_obj_bind_style(subtitle_1, &edited, 0, &hour_edited, 1);
+
 
     lv_obj_t * subtitle_2 = subtitle_create(row_0, ":");
 
 
     lv_obj_t * subtitle_3 = subtitle_create(row_0, "settings");
-    lv_label_bind_text(subtitle_3, &mins, NULL);
+    lv_label_bind_text(subtitle_3, &mins, NULL);    lv_obj_bind_style(subtitle_3, &edited, 0, &min_edited, 1);
+
 
 
 

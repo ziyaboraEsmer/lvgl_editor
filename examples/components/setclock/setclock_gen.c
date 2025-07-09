@@ -54,6 +54,8 @@ lv_obj_t * setclock_create(lv_obj_t * parent)
 
     lv_obj_t * lv_roller_0 = lv_roller_create(column_0);
     lv_roller_set_options(lv_roller_0, HOURS_STRING, LV_ROLLER_MODE_NORMAL);lv_roller_bind_value(lv_roller_0, &hours);
+    lv_obj_add_subject_set_int_event(lv_roller_0, &hour_edited, LV_EVENT_PRESSED, 1);
+    lv_obj_add_subject_set_int_event(lv_roller_0, &hour_edited, LV_EVENT_RELEASED, 0);
 
 
 
@@ -65,6 +67,8 @@ lv_obj_t * setclock_create(lv_obj_t * parent)
 
     lv_obj_t * lv_roller_1 = lv_roller_create(column_1);
     lv_roller_set_options(lv_roller_1, MINS_STRING, LV_ROLLER_MODE_NORMAL);lv_roller_bind_value(lv_roller_1, &mins);
+    lv_obj_add_subject_set_int_event(lv_roller_1, &min_edited, LV_EVENT_PRESSED, 1);
+    lv_obj_add_subject_set_int_event(lv_roller_1, &min_edited, LV_EVENT_RELEASED, 0);
 
 
 

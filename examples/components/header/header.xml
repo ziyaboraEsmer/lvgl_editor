@@ -14,7 +14,7 @@
             flex_flow="row"
             text_color="0xffffff"
         />
-        <style name="edited" text_color="0099ee"/>
+        <style name="edited" text_color="0x0099ee"/>
 
     </styles>
     
