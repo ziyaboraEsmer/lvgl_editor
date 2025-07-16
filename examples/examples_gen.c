@@ -7,7 +7,7 @@
  *********************/
 #include "examples_gen.h"
 
-#if LV_USE_XML
+#if LV_USE_XML  
 #endif
 
 /*********************
@@ -63,8 +63,11 @@ lv_font_t * font_subtitle;
  * Images
  *----------------*/
 const void * img_wifi;
+extern const void * img_wifi_data;
 const void * img_bluetooth;
+extern const void * img_bluetooth_data;
 const void * img_bell;
+extern const void * img_bell_data;
 
 /*----------------
  * Subjects
@@ -105,12 +108,9 @@ void examples_init_gen(const char * asset_path)
     /*----------------
      * Images
      *----------------*/
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/wifi-solid.png");
-    img_wifi = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/bluetooth-brands.png");
-    img_bluetooth = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/bell-solid.png");
-    img_bell = lv_strdup(buf);
+    img_wifi = &img_wifi_data;
+    img_bluetooth = &img_bluetooth_data;
+    img_bell = &img_bell_data;
 
 
     /*----------------

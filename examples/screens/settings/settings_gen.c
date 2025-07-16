@@ -61,6 +61,7 @@ lv_obj_t * settings_create(void)
 
 
     lv_obj_t * row_0 = row_create(lv_obj_0);
+    lv_obj_set_flex_grow(row_0, 1);
     lv_obj_set_style_bg_color(row_0, lv_color_hex(0xebebeb), 0);
     lv_obj_set_style_bg_opa(row_0, 255, 0);
     lv_obj_set_style_pad_all(row_0, 5, 0);

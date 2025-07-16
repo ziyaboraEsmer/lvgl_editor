@@ -1,9 +1,9 @@
 <globals>
     
     <images>
-        <data name="img_wifi" src_path="images/wifi-solid.png"/>
-        <data name="img_bluetooth" src_path="images/bluetooth-brands.png"/>
-        <data name="img_bell" src_path="images/bell-solid.png"/>
+        <data name="img_wifi" src_path="images/wifi-solid.png" color_format="argb8888"/>
+        <data name="img_bluetooth" src_path="images/bluetooth-brands.png"  color_format="argb8888"/>
+        <data name="img_bell" src_path="images/bell-solid.png"  color_format="argb8888"/>
     </images>
 
     <fonts>
