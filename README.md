@@ -29,7 +29,7 @@ This video provides a step-by-step guide to all the supported features. A new vi
 ## Get Started
 
 1. **Install the dependencies**: 
-   - On Windows: Make sure that `wsl` is installed. Just add `wsl --install` in the comman line
+   - On Windows: Make sure that `wsl` is installed. Just add `wsl --install` in the command line
    - On Linux: Install Podman with `sudo apt-get install podman` or its equivalent
    - On Mac: It should work out of the box
 2. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases).
