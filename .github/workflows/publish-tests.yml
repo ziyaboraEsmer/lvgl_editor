@@ -106,6 +106,8 @@ jobs:
           cd /tmp/online-preview
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
+          # Remove existing git repository and start fresh
+          rm -rf .git
           git init
           git add .
           git commit -m "Deploy examples to gh-pages branch"
