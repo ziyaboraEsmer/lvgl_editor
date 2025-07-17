@@ -31,7 +31,7 @@ This video provides a step-by-step guide to all the supported features. A new vi
 1. **Install the dependencies**: 
    - On Windows: Make sure that `wsl` is installed. Just add `wsl --install` in the command line
    - On Linux: Install Podman with `sudo apt-get install podman` or its equivalent
-   - On Mac: It should work out of the box
+   - On Mac: Install Podman with `brew install podman`
 2. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases).
 3. **Fork and clone this repository** to experiment with its CI actions and online preview features. In the repository settings set the source of `Pages` to `GitHub Action`, and on the `Actions` page enable actions. 
 4. **Open the editor** and load the example folder.
