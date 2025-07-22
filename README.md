@@ -1,119 +1,124 @@
-# LVGL's UI Editor
+# LVGL UI Editor
 
-This repository contains public content related to the LVGL Editor. 
-
+This repository contains the public content related to the LVGL UI Editor.  
 
 ## Introduction
 
-LVGL's UI editor is a work-in-progress tool designed to help UI developers create embedded UIs faster and more maintainably. The key features of this tool are:
+LVGL’s UI Editor is a **developer-centric** tool to help embedded UI developers create user interfaces faster and more efficiently.  
 
-- **Component-oriented**: Various UI elements can be implemented as reusable components.
-- **XML-based**: Components are described in an HTML-like syntax.
-- **Instant preview**: Components can be previewed as you edit them.
-- **Figma support**: LVGL's Figma plugin helps quickly extract styles from any Figma elements.
-- **Online preview**: A CI action converts XML files into a website for easy preview.
-- **Custom widget creation**: Unlike components, widgets have C logic. You can recompile the editor to include new widgets' code.
-- **C export**: Both components and widgets can be exported to C, enabling seamless integration into your application, just like handwritten code.
-- **Runtime XML loading**: Components can be loaded from XML at runtime without recompiling the firmware.
+It is designed for developers who implement designs created in tools like Figma — not for designers themselves. The editor assumes you are comfortable writing and managing code, and integrates seamlessly into your workflow, letting you switch between generated and handwritten code whenever it makes sense.  
 
-This tool is **developer-centric**, designed for those who bring designer-created UIs to life. It’s not a drag-and-drop tool for designers but assumes users are comfortable with writing and managing code. The editor complements your workflow, enabling seamless transitions between generated and handwritten code. Use it where it’s more efficient, and code directly when better suited.
+We believe designers should work freely in creative tools like Figma. LVGL’s Editor helps developers turn those designs into maintainable, scalable embedded UIs.  
 
-We believe designers should work freely in tools like Figma, focusing on creativity without limitations. LVGL's editor helps developers structure and implement these designs in a maintainable, scalable way. Our goal is to bridge the gap, empowering both designers and developers to excel in their roles.
+### Key Features
+
+- **Component-oriented**: Build reusable UI components.  
+- **XML-based**: Describe components in an HTML-like syntax.  
+- **Runtime XML loading**: Load components from XML at runtime without recompiling.  
+- **Instant preview**: See changes immediately as you edit.  
+- **Figma support**: Extract styles from Figma using LVGL’s plugin.  
+- **Share online**: CI actions generate a preview website from your XML.  
+- **Custom widget creation**: Add C-based widgets by recompiling the editor.  
+- **C export**: Export both components and widgets to C code.  
+- **Built-in testing**: Create UI tests in seconds.  
+- **Translations**: Manage text translations flexibly.  
+- **Data binding**: Bind widgets to global data to bridge UI and application logic.  
 
 ---
 
-This video provides a step-by-step guide to all the supported features. A new video for v0.2 is coming soon. 
+This video provides a step-by-step guide to all supported features. A new video for v0.2 is coming soon.  
 
 [![image](https://github.com/user-attachments/assets/2c72c3c9-44fa-4ae4-8616-867e2efe3209)](https://www.youtube.com/watch?v=YEoHK5P0ASE)
 
 ## Get Started
 
-1. **Install the dependencies**: 
-   - On Windows: Make sure that `wsl` is installed. Just add `wsl --install` in the command line
-   - On Linux: Install Podman with `sudo apt-get install podman` or its equivalent
-   - On Mac: Install Podman with `brew install podman`
-2. **Download and install the Editor.** Find the installers [here](https://github.com/lvgl/lvgl_editor/releases).
-3. **Fork and clone this repository** to experiment with its CI actions and online preview features. In the repository settings set the source of `Pages` to `GitHub Action`, and on the `Actions` page enable actions. 
-4. **Open the editor** and load the example folder.
-5. **Prepare the Project** Generate C code by clicking the ![image](https://github.com/user-attachments/assets/f2c720b6-19cf-4abd-a79b-ac31b2cc0fec)
-`Generate Code` button first and click ![image](https://github.com/user-attachments/assets/8cb7fb0b-bde3-4be7-af31-10131c5c9476)
-`Compile Project` button after that to recompile the Editor's preview with the new C code.  
-6. **Edit components**: Open `button_default.xml` and make edits. Save the file (Ctrl+S) to update the preview. Learn more about LVGL's XML language [here](https://docs.lvgl.io/master/details/xml/index.html).
-7. **Edit a widget**: Open `slider_box.xml` (a widget) and click "Compile Code." It will compile the C code alongside the widget's XML. Feel free to edit the C code and recompile it.
-8. **Check out Fonts and Images**: Open `globals.xml` to see how images and fonts are handled.
-9. **Open the [Figma project](https://www.figma.com/design/itmQpC9m5HessaOZFbYTwK/Example?node-id=0-1&t=oWqPUdcRyVYtRgAY-0)** and duplicate it.
-10. **Use the Figma to LVGL plugin**: Open our plugin, modify the design, and update the XMLs with the new styles.
-11. **Try the online preview**: Commit and push your changes. Wait for the CI to run and check the online preview.
-12. **Open an issue** if you encounter problems or get stuck. 😊
+1. **Install dependencies**:  
+   - Windows: Install `wsl` (`wsl --install`)  
+   - Linux: Install Podman (`sudo apt-get install podman`)  
+   - Mac: Install Podman (`brew install podman`)  
+
+2. **Download and install the Editor**: Get the installers [here](https://github.com/lvgl/lvgl_editor/releases).  
+3. **Fork and clone this repository** to try the CI actions and online preview. Set `Pages` source to `GitHub Action` and enable Actions in repository settings.  
+4. **Open the editor** and load the example folder.  
+5. **Prepare the project**:  
+   - Click `Generate Code`  
+   - Click `Compile Project` to rebuild the preview with new C code.  
+6. **Edit components**: Modify `button_default.xml` and save (Ctrl+S) to update the preview. Learn XML [here](https://docs.lvgl.io/master/details/xml/index.html).  
+7. **Edit a widget**: Open `slider_box.xml`, edit XML and/or C code, then click `Compile Code`.  
+8. **Fonts and images**: Check `globals.xml` for how these are handled.  
+9. **Figma**: Open the [Figma project](https://www.figma.com/design/itmQpC9m5HessaOZFbYTwK/Example?node-id=0-1&t=oWqPUdcRyVYtRgAY-0) and duplicate it.  
+10. **Use the Figma plugin**: Modify the design and update XMLs with new styles.  
+11. **Try the online preview**: Push your changes, wait for CI to run, then check the preview.  
+12. **Need help?** Open an issue anytime. 😊  
 
 ## Current Status and Future Plans
 
-This is an early preview of the UI editor, so only core functionalities are supported at this moment. 
-The goal is to demonstrate the development direction and gather feedback for adjustments.
-
-**Note**: This version is for preview purposes only and not suitable for production.
+Current version: **v0.3 (beta, not production-ready)**  
+Feature-complete except for animation support.  
 
 ### Currently Supported Features
 
-- Most of the built-in widgets (`lv_obj`, `lv_label`, `lv_slider`, `lv_button`, `lv_chart`, `lv_scale` etc.).
-- Load XML components at runtime from files or data (part of LVGL as an open-source MIT-licensed feature).
-- Style sheets and local styles supporting most of the style properties.
-- Nest components and widgets at any depth.
-- Dynamically instantiate XML components in C.
-- Register images and fonts accessible by name in XML
-- Use constants for widget and style properties.
-- Define, pass, and use parameters for components.
-- XML auto-completion, and syntax error highlighting.
-- Inspector mode to drag and resize the widgets by mouse
-- Event and subject handling.
-- VSCode plugin
-- Update style properties from Figma
- 
-Please refer to the examples to learn the XML syntax or read [this page](https://docs.lvgl.io/master/details/auxiliary-modules/xml/index.html) for more information.
+- Most built-in widgets (`lv_obj`, `lv_label`, `lv_slider`, `lv_button`, `lv_chart`, `lv_scale`, etc.)  
+- Runtime XML loading (MIT-licensed, part of LVGL)  
+- Style sheets and local styles  
+- Nested components and widgets  
+- Dynamic instantiation of XML components in C  
+- Image and font registration by name in XML  
+- Constants for widget and style properties  
+- Parameters for components  
+- XML auto-completion and error highlighting  
+- Inspector mode for drag and resize  
+- Event and subject handling  
+- Figma style updates  
+- Screen creation/loading events  
+- Data binding  
+- UI testing  
+- Translations  
+- CMake support  
+
+Learn XML syntax from the examples or [documentation](https://docs.lvgl.io/master/details/xml/index.html).  
 
 ### Future Plans
 
-We aim to release v0.3 in **July 2025**, which will include:
-
-- Translation support.
-- Eclipse plugin
-- Link images to Figma
-- Theme switching support
-- Debug panel to adjust subject
-- Animations
+v1.0 planned for **October 2025**.
 
 ## Business Model
 
-During development, everything will be free. After v1.0 (targeted for **Q3 2025**), we plan to introduce the following models (subject to change):
+During development, all features are free. After v1.0, the following plans will be available:  
 
-### Free Version:
-- No limitations on the number of components.
-- No access to the Figma plugin or online preview.
-- No support for custom widgets (i.e., recompiling the editor).
-- No multi-language UI translation support.
-- Some advanced features may be disabled.
+### Free Version
+- Use all features in the online editor  
+- Save changes only to public GitHub repositories  
+- Target: Makers and open-source projects  
 
-**Target Audience**: Makers and small companies.
+### Starter Subscription
+- Basic editor features  
+- Unlimited project complexity  
+- Floating license  
+- Annual subscription (price announced September)  
+- Target: Small companies  
 
-### Yearly Subscription
-- Access to all editor features (e.g., multi-language support, custom widgets).
-- Figma plugin and online preview support.
-- Free for open-source projects (requires regular updates to ensure the project remains open-source).
+### Business Subscription
+- Full editor features  
+- Unlimited project complexity  
+- Floating license  
+- Email support  
+- Annual subscription (price announced September)  
+- Target: Companies with complex products requiring collaboration  
 
-**Target Audience**: Teams with designers and developers requiring collaboration.
-
-### Enterprise Version:
-- Plugin support for deep customization (e.g., custom buttons, themes, XML processing, code export hooks).
-- Integration with custom applications or CI workflows via CLI.
-- Collaborative development, including feature development as a service.
-- Custom pricing based on specific needs.
-
-**Target Audience**: Large enterprise companies and vendors requiring custom tools and features.
+### Enterprise Version
+- Full editor features  
+- Unlimited project complexity  
+- Custom plugin development  
+- 5 floating licenses  
+- Live support (Slack, Teams, etc.)  
+- Annual subscription (price announced September)  
+- Target: Large enterprises and vendors needing custom tools and features  
 
 ## Contribution
 
-Just like LVGL, we are developing this tool for you. We want to add the features you need, not just what we think is useful.
+We’re building this tool for you — your feedback drives its development.  
 
-Please open an issue in this repository to share your feedback. Your input will help shape the development of LVGL's UI Editor! 
+Please open an issue to share suggestions, report bugs, or request features.  
 
 Thank you! ❤️
